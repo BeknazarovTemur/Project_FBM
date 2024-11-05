@@ -1,0 +1,121 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+        <div class="center_box">
+            <div class="container">
+                <div class="col-md-4 nopade">
+                    <div class="title">Документы</div>
+                    <ul class="list_news">
+                        <li><div class="list_title">ПОСТАНОВЛЕНИЕ</div><a href="#">Об утверждении Положения о требованиях по недопущению использования труда несовершеннолетних</a></li>
+                        <li><div class="list_title">КОНВЕНЦИЯ</div><a href="#">Конвенция о минимальном возрасте для приема на работу</a></li>
+                        <li><div class="list_title">КОНВЕНЦИЯ</div><a href="#">Конвенция об упразднении принудительного труда</a></li>
+                        <li><div class="list_title">КОНВЕНЦИЯ</div><a href="#">Конвенция об упразднении принудительного труда</a></li>
+                    </ul>
+                    <div class="call_box">
+                        <div class="centre attention attention_border_bottom">Вы стали свидетелем или жертвойпринудительного труда?</div>
+                        <div class="caller">
+                            <div class="centre">
+                                <div class="caller_text">Телефоны доверия</div>
+                            </div>
+                            <div class="text">
+                                <span>1092</span>
+                                Совет Федерации профсоюзов Узбекистана
+                            </div>
+                            <div class="text text_right">
+                                <span>200 06 01</span>
+                                Государственная правовая инспекция труда
+                            </div>
+                        </div>
+                        <div class="centre attention attention_border_top">Незамедлительно сообщите!</div>
+                    </div>
+
+                    <div class="call_center">
+                        <div class="red_blog">
+                            <div class="centre red_name">Если у Вас имеются:</div>
+                            <ul>
+                                <li>вопросы касательно применения трудового законодательства;</li>
+                                <li>нарушения Ваших трудовых прав и гарантий;</li>
+                                <li>факты принудительного труда,, незаконного использования труда детей (в возрасте до 18 лет)</li>
+                            </ul>
+                        </div>
+                        <div class="center_triangle">
+                            <div class="triangle_left"></div>
+                            <div class="triangle_right"></div>
+                            <div class="centre red_name centre_text">ОБРАЩАЙТЕСЬ!</div>
+                        </div>
+                        <div class="blue_blog">
+                            <div class="centre blue_name">Телефоны доверия</div>
+                            <div class="text">
+                                Юридическая
+                                клиника Совета
+                                Федерации
+                                профсоюзов
+                                Узбекистана
+                                <span>1092</span>
+
+                            </div>
+                            <div class="text text_right">
+                                Государственная
+                                правовая инспекция
+                                труда Министерства
+                                труда и социальной
+                                защиты населения
+                                <span>200 06 01</span>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+
+                    <div class="brown_list bg_brown">
+                        <div class="title">Полезные ссылки</div>
+                        <ul>
+                            <li><img src="{% static 'blogs/img/img_1.png' %}"><a href="https://www.ilo.org/ru">Международная организация труда</a></li>
+                            <li><img src="{% static 'blogs/img/img_2.png' %}"><a href="#">Группа Всемирного банка</a></li>
+                            <li><img src="{% static 'blogs/img/img_3.png' %}"><a href="#">Международная организация работодателей</a></li>
+                            <li><img src="{% static 'blogs/img/img_4.png' %}"><a href="#">Международная конфедерация профсоюзов </a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-8 column nopaderight">
+                    <div class="anons_box">
+
+                        
+                            <div class="title">Новости</div>
+                            <ul class="col-md-12">
+                            {% for post in object_list %}
+                                <li>
+                                    <a href="{% url 'post_detail' post.pk  %}" class="anons_link">{{ post.title }}</a>
+                                    <span class="text_anons">{{ post.short_content }}</span>
+                                    <div class="min_date">{{ post.date }}</div>
+                                </li>
+                            {% endfor %}
+                            </ul>
+                            <div class="clearfix"></div>
+                        
+
+                        <div class="work work_in">
+                            <div class="title"><a href="#">Вопросы и ответы</a></div>
+                            <div class="answer_box">
+                                <ul class="col-md-6 nopadeleft relative">
+                                    <li>Я работаю медсестрой. Нас вынужденно забирают на хлопок. А тех кто не хочет принуждают давать большие деньги. Что мне делать?</li>
+                                    <li>Мой отец работает на предприятии бухгалтером. С какого возраста он имеет право выхода на пенсию по возрасту?</li>
+                                    <li>Мой отец работает на предприятии бухгалтером. С какого возраста он имеет право выхода на пенсию по возрасту?</li>
+                                </ul>
+                                <ul class="col-md-6 nopaderight relative">
+                                    <li>Мой отец работает на предприятии бухгалтером. С какого возраста он имеет право выхода на пенсию по возрасту?</li>
+                                    <li>Я работаю медсестрой. Нас вынужденно забирают на хлопок. А тех кто не хочет принуждают давать большие деньги. Что мне делать?</li>
+                                    <li>Мой отец работает на предприятии бухгалтером. С какого возраста он имеет право выхода на пенсию по возрасту?</li>
+                                </ul>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        
+{% endblock content %}

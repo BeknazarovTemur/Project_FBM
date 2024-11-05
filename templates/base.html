@@ -1,0 +1,223 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link href="{% static 'blogs/css/bootstrap.min.css' %}" rel="stylesheet">
+	<link href="{% static 'blogs/css/jquery-ui.css' %}" rel="stylesheet">
+	<link href="{% static 'blogs/css/style.css' %}" rel="stylesheet">
+	<link href="{% static 'blogs/css/style.css' %}" rel="stylesheet">
+	<link href="{% static 'blogs/css/media.css' %}" rel="stylesheet">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="head">
+            <div class="bg_img"><img src="{% static 'blogs/img/bg_map.jpg' %}"></div>
+            <div class="container relative">
+                <ul class="lang">
+                    <li class="active"><a href="#">Ўзб</a></li>
+                    <li><a href="#">Рус</a></li>
+                    <li><a href="#">Eng</a></li>
+                </ul>
+                <div class="ways">
+                    <form action="#" method="get" class="form_search relative">
+                        <input type="text" class="searchBox" name="" placeholder="Поиск по сайту...">
+                        <button class="searchBtn" type="submit"><i class=""></i></button>
+                    </form>
+                    <div class="special_link">
+                        <a href="#" class="icon_accessibility dataTooltip" data-toggle="dropdown" data-placement="bottom" title="Махсус имкониятлар" aria-expanded="true">Версия для слабовидящих<img src="{% static 'blogs/img/eye.png' %}"></a>
+                        <div class="dropdown-menu dropdown-menu-right specialViewArea no-propagation">
+                            <div class="triangle2"></div>
+
+                            <div class="appearance">
+                                <p class="specialTitle">Кўриниш</p>
+
+                                <div class="squareAppearances">
+                                    <div class="squareBox spcNormal" data-toggle="tooltip" data-placement="bottom" title="Оддий кўриниш">A</div>
+                                </div>
+                                <div class="squareAppearances">
+                                    <div class="squareBox spcWhiteAndBlack" data-toggle="tooltip" data-placement="bottom" title="Оқ-қора кўриниш">A</div>
+                                </div>
+                                <div class="squareAppearances">
+                                    <div class="squareBox spcDark" data-toggle="tooltip" data-placement="bottom" title="Қоронғилашган кўриниш">A</div>
+                                </div>
+                            </div>
+
+                            <div class="appearance">
+                                <p class="specialTitle">Шрифт ўлчами</p>
+
+                                <div class="block">
+                                    <div class="sliderText"><span class="range">0</span>% га катталаштириш</div>
+                                    <div id="fontSizer" class="defaultSlider ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all"><div class="ui-slider-range ui-widget-header ui-corner-all ui-slider-range-min" style="width: 0%;"></div><span class="ui-slider-handle ui-state-default ui-corner-all" tabindex="0" style="left: 0%;"></span></div>
+                                </div>
+                            </div>
+
+                            <div class="more_margin"></div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-3  col-xs-2 relative nopaderight">
+                    <div class="left_blog">
+                        <a href="#"><img src="{% static 'blogs/img/gerb.png' %}"></a>
+                        <a href="https://mehnat.uz/ru" class="left_blog_text">Министерство труда
+                            и социальной защиты населения
+                            Рecпублики Узбекистан
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-6 col-xs-8">
+                    <div id="fgdf" class="centre">
+                        <a class="logo_name" href="{% url 'home' %}">www.fbm.uz</a>
+                        <div class="logo_text">Реализация страновой программы достойного
+                            труда в Республике Узбекистан </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-3 col-xs-2 nopadeleft">
+                    <div class="right_blog">
+                        <a href="https://kasaba.uz/ru/"><img src="{% static 'blogs/img/map_uz.png' %}"></a>
+                        <a href="https://kasaba.uz/ru/" class="right_blog_text">Портал Федерации
+                            Профсоюзов Узбекистана
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="head_menu">
+            <div class="menu_bg">
+                <div class="container nopade">
+                    <div class="menu">
+                        <nav class="navbar">
+                            <div class="container-fluid nopade">
+                                <!-- Brand and toggle get grouped for better mobile display -->
+                                <div class="navbar-header">
+                                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                                        <span class="sr-only">Toggle navigation</span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                    </button>
+                                </div>
+                                <!-- Collect the nav links, forms, and other content for toggling -->
+                                <div class="collapse navbar-collapse nopade" id="bs-example-navbar-collapse-1">
+                                    <ul class="nav navbar-nav">
+                                        <li class="active"><a href="{% url 'home' %}">Главная </a></li>
+                                        <li><a href="#">Конвенции МОТ</a></li>
+                                        <li class="dropdown">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Законодательство <span class="caret"></span></a>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="{% url 'home' %}">Главная</a></li>
+                                                <li><a href="#">Законодательство личности</a></li>
+                                                <li><a href="#">О портале</a></li>
+                                                <li><a href="#">Государственные символы</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="{% url 'news' %}">Новости</a></li>
+                                        <li><a href="#">Мероприятия</a></li>
+                                        <li><a href="{% url 'call' %}">Контакты</a></li>
+                                    </ul>
+                                </div><!-- /.navbar-collapse -->
+                            </div><!-- /.container-fluid -->
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="head_slider">
+            <div class="container nopade relative">
+                <div class="position_slide relative">
+                    <div id="carouselx" class="carousel slide" data-ride="carousel">
+
+                        <!-- Wrapper for slides -->
+                        <div class="carousel-inner" role="listbox">
+                            <div class="item active">
+                                <div class="img_slide"><img src="{% static 'blogs/img/slide1.png' %}"><div class="img_text"><span>Охрана труда <br>в Республике Узбекистан</span></div></div>
+                                <div class="slide_text">
+                                    <div class="table_sl_text">
+                                            В последние годы Узбекистаном приняты значительные меры по обеспечению исполнения норм ратифицированных конвенций МОТ. В этом направлении:
+                                        <br>- усовершенствовано национальное законодательство, их нормы приведено в соответствии с требований международных трудовых стандартов.
+                                        <br>- делегация Республики Узбекистан в трехстороннем формате (Министерство труда и социальной защиты населения, Совет Федерации профсоюзов Узбекистана, Торгово-промышленная палата Узбекистана) ежегодно участвует на работе Международных конференций труда, на регулярном основе предоставляются отчеты и доклады по ратифицированным и не ратифицированным конвенциям МОТ. Направляются ответы на прямые запросы и комментарий Комитета экспертов по применению конвенций и рекомендаций МОТ.
+                                        <br>- повышается знаний ответственных специалистов трехсторонних партнеров МОТ в Узбекистане.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="img_slide"><img src="{% static 'blogs/img/slide2.png' %}"><div class="img_text"><span>Детский <br>принудительный<br> труд</span></div></div>
+                                <div class="slide_text">
+                                    <div class="table_sl_text">
+                                            В последние годы Узбекистаном приняты значительные меры по обеспечению исполнения норм ратифицированных конвенций МОТ. В этом направлении:
+                                        <br>- усовершенствовано национальное законодательство, их нормы приведено в соответствии с требований международных трудовых стандартов.
+                                        <br>- делегация Республики Узбекистан в
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item ">
+                                <div class="img_slide"><img src="{% static 'blogs/img/slide3.png' %}"><div class="img_text"><span>Хлопок – <br> богатство страны</span></div></div>
+                                <div class="slide_text border_slide">
+                                    <div class="table_sl_text font_size">
+                                            Стали свидетелем ситуации принудительного труда по сбору хлопка сырца?
+                                        <br>Незамедлительно сообщите!
+
+                                            <span class="slide_pade">
+                                                Телефон доверия:  <span class="slide_call">200 06 01</span>
+                                            </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Controls -->
+                        <div class="controllers">
+                            <a class="carousel-control" href="#carouselx" role="button" data-slide="prev"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span></a>
+                            <a class="carousel-control" href="#carouselx" role="button" data-slide="next"><span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+{% block content %}
+
+{% endblock content %}
+
+
+<div class="footer">
+    <div class="container relative">
+        <div class="map_uz">
+            <div class="centre">
+                <a class="logo_name" href="{% url 'home' %}">www.fbm.uz</a>
+                <div class="logo_text">Реализация страновой программы достойного
+                    труда в Республике Узбекистан </div>
+            </div>
+        </div>
+        <div class="footer_text">
+            <div class="footer_name">Сайт создан Министерством труда и социальной защиты населения Рecпублики Узбекистан совместно с Порталом Федерации Профсоюзов Узбекистана</div>
+            <div>© 2015 Все права защищены</div>
+            <p>
+                Разработка
+                <a href="https://uzinfocom.uz/"><img src="{% static 'blogs/img/uzinfocom.png' %}"></a>
+            </p>
+        </div>
+    </div>
+</div>
+</div>
+
+<!--[if lt IE 9]>
+<script src="js/html5shiv.js"></script>
+<script src="js/jqueryFake.js"></script>
+<script src="js/respond.js"></script>
+<script src="js/ie9.js"></script>
+<![endif]-->
+
+<script src="{% static 'blogs/js/jquery-2.1.3.min.js' %}"></script>
+<script src="{% static 'blogs/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'blogs/js/jquery.cookie.js' %}"></script>
+<script src="{% static 'blogs/js/jquery-ui.js' %}"></script>
+<script src="{% static 'blogs/js/mousetrap.min.js' %}"></script>
+<script src="{% static 'blogs/js/specialView.js' %}"></script>
+<script src="{% static 'blogs/js/main.js' %}"></script>
+</body>
+</html>

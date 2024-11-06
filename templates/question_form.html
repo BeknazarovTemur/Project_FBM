@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+        <div class="center_box">
+            <div class="container">
+                <div class="col-md-4 nopade">
+                    <div class="title">Документы</div>
+                    <ul class="list_news">
+                        <li><div class="list_title">ПОСТАНОВЛЕНИЕ</div><a href="#">Об утверждении Положения о требованиях по недопущению использования труда несовершеннолетних</a></li>
+                        <li><div class="list_title">КОНВЕНЦИЯ</div><a href="#">Конвенция о минимальном возрасте для приема на работу</a></li>
+                        <li><div class="list_title">КОНВЕНЦИЯ</div><a href="#">Конвенция об упразднении принудительного труда</a></li>
+                        <li><div class="list_title">КОНВЕНЦИЯ</div><a href="#">Конвенция об упразднении принудительного труда</a></li>
+                    </div>
+                    <div class="col-md-8 column nopaderight">
+                        <div class="anons_box">
+                            <div class="clearfix"></div>
+                            <div class="anons">
+                                <div class="title">СОЗДАТЬ ВОПРОС</div>
+                                <ul class="col-md-6">
+                                
+                                    
+                                    <form method="POST" action="">
+                                        {% csrf_token %}
+                                        <div class="form-group">
+                                          <label for="inputPhone">Phone number</label>
+                                          <input type="text" name="phone_number" class="form-control" id="inputPhone" placeholder="Enter Your Phone Number">
+                                        </div>
+                                        <div class="form-group">
+                                          <label for="inputTitle">Title</label>
+                                          <input type="text" name="title" class="form-control" id="inputTitle" placeholder="Write the title of your question!">
+                                        </div>
+                                        <div class="form-group">
+                                          <label for="inputDetail">Detail</label>
+                                          <textarea id="inputDetail" name="detail" rows="4" class="form-control" maxlength="200" placeholder="Enter Details..."></textarea>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary">Send</button>
+                                      </form>
+                                      
+
+                                </ul>
+                                <div class="clearfix"></div>
+                            </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+{% endblock content %}

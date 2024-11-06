@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+        <div class="center_box">
+            <div class="container">
+                <div class="col-md-4 nopade">
+                    <div class="title">Документы</div>
+                    <ul class="list_news">
+                        <li><div class="list_title">ПОСТАНОВЛЕНИЕ</div><a href="#">Об утверждении Положения о требованиях по недопущению использования труда несовершеннолетних</a></li>
+                        <li><div class="list_title">КОНВЕНЦИЯ</div><a href="#">Конвенция о минимальном возрасте для приема на работу</a></li>
+                        <li><div class="list_title">КОНВЕНЦИЯ</div><a href="#">Конвенция об упразднении принудительного труда</a></li>
+                        <li><div class="list_title">КОНВЕНЦИЯ</div><a href="#">Конвенция об упразднении принудительного труда</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-8 column nopaderight">
+                    <div class="anons_box">
+                        <div class="col-md-6 nopade relative">
+                            <a href="#" class="green_box">
+                                <div class="table_link">
+                                    <span>Отправить обращение</span>Отправка заявлений, предложений и жалоб  в лектронном виде
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-md-6 nopade relative">
+                            <a href="{% url 'question_form' %}" class="blue_box">
+                                <div class="table_link">
+                                    <span>Задать вопрос</span>Задайте свой вопрос в сфере законодательства в режиме онлайн
+                                </div>
+                            </a>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="centre"><img src="{% static 'blogs/img/gov.jpg' %}" class="centre_img"></div>
+                        <div class="work">
+                            <div class="title"><a href="{% url 'questions' %}">Вопросы и ответы</a></div>
+                            <div class="answer_box">
+                                <ul class="col-md-6 nopadeleft">
+                                    <li>Я работаю медсестрой. Нас вынужденно забирают на хлопок. А тех кто не хочет принуждают давать большие деньги. Что мне делать?</li>
+                                    <li>Мой отец работает на предприятии бухгалтером. С какого возраста он имеет право выхода на пенсию по возрасту?</li>
+                                    <li>Мой отец работает на предприятии бухгалтером. С какого возраста он имеет право выхода на пенсию по возрасту?</li>
+                                </ul>
+                                <ul class="col-md-6 nopaderight">
+                                    <li>Мой отец работает на предприятии бухгалтером. С какого возраста он имеет право выхода на пенсию по возрасту?</li>
+                                    <li>Я работаю медсестрой. Нас вынужденно забирают на хлопок. А тех кто не хочет принуждают давать большие деньги. Что мне делать?</li>
+                                    <li>Мой отец работает на предприятии бухгалтером. С какого возраста он имеет право выхода на пенсию по возрасту?</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+{% endblock content %}

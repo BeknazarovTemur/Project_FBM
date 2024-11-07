@@ -1,5 +1,6 @@
 from django.urls import reverse_lazy
-from django.views.generic import ListView, DetailView, UpdateView, DeleteView
+from django.views.generic import ListView, DetailView
+from files.models import Document
 from question.models import Question
 from .models import Post
 
@@ -10,6 +11,7 @@ class PostListView(ListView):
     template_name = 'home.html'
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        context['documents'] = Document.objects.all() 
         context['questions'] = Question.objects.all()
         return context
 
@@ -17,23 +19,17 @@ class PostDetailView(DetailView):
     model = Post
     template_name = 'post_detail.html'
     context_object_name = 'post'
-
-class PostUpdateView(UpdateView):
-    model = Post
-    fields = ('title', 'short_content', 'image',)
-    template_name = 'post_edit.html'
-
-class PostDeleteView(DeleteView):
-    model = Post
-    template_name = 'post_delete.html'
-    success_url = reverse_lazy('home')
-
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['documents'] = Document.objects.all()
+        return context
 
 class NewsListView(ListView):
     model = Post
     template_name = 'news.html'
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        context['documents'] = Document.objects.all()
         context['questions'] = Question.objects.all()
         return context
 
@@ -42,9 +38,6 @@ class CallListView(ListView):
     template_name = 'call.html'
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        context['documents'] = Document.objects.all()
         context['questions'] = Question.objects.all()
         return context
-
-class DownloadListView(ListView):
-    model = Post
-    template_name = 'download.html'

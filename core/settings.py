@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'posts',
     'question',
     'appeal',
+    'files',
 ]
 
 MIDDLEWARE = [

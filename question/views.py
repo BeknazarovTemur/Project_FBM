@@ -1,4 +1,5 @@
 from django.views.generic import ListView
+from files.models import Document
 from .models import Question
 from django.shortcuts import render, redirect
 
@@ -6,6 +7,10 @@ from django.shortcuts import render, redirect
 class QuestionListView(ListView):
     model = Question
     template_name = 'question.html'
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['documents'] = Document.objects.all()
+        return context
 
 def create_question(request):
     if request.method == 'POST':
@@ -16,4 +21,8 @@ def create_question(request):
         Question.objects.create(number=number, title=title, detail=detail)
 
         return redirect('questions')
-    return render(request, 'question_form.html')
+    document_list = Document.objects.all()
+    context = {
+        'documents': document_list,
+    }
+    return render(request, 'question_form.html', context)

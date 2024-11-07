@@ -9,10 +9,12 @@
 
                     <div class="title">Документы</div>
                     <ul class="list_news">
-                        <li><div class="list_title">ПОСТАНОВЛЕНИЕ</div><a href="#">Об утверждении Положения о требованиях по недопущению использования труда несовершеннолетних</a></li>
-                        <li><div class="list_title">КОНВЕНЦИЯ</div><a href="#">Конвенция о минимальном возрасте для приема на работу</a></li>
-                        <li><div class="list_title">КОНВЕНЦИЯ</div><a href="#">Конвенция об упразднении принудительного труда</a></li>
-                        <li><div class="list_title">КОНВЕНЦИЯ</div><a href="#">Конвенция об упразднении принудительного труда</a></li>
+                        {% for download in documents %}
+                            <li>
+                                <div class="list_title">{{ download.title }}</div>
+                                <a href="#">{{ download.body }}</a>
+                            </li>
+                        {% endfor %}
                     </ul>
 
                     <div class="call_box">

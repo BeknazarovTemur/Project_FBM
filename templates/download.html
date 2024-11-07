@@ -8,10 +8,12 @@
                 <div class="col-md-4 nopade">
                     <div class="title">Документы</div>
                     <ul class="list_news">
-                        <li><div class="list_title">ПОСТАНОВЛЕНИЕ</div><a href="#">Об утверждении Положения о требованиях по недопущению использования труда несовершеннолетних</a></li>
-                        <li><div class="list_title">КОНВЕНЦИЯ</div><a href="#">Конвенция о минимальном возрасте для приема на работу</a></li>
-                        <li><div class="list_title">КОНВЕНЦИЯ</div><a href="#">Конвенция об упразднении принудительного труда</a></li>
-                        <li><div class="list_title">КОНВЕНЦИЯ</div><a href="#">Конвенция об упразднении принудительного труда</a></li>
+                        {% for download in object_list %}
+                            <li>
+                                <div class="list_title">{{ download.title }}</div>
+                                <a href="#">{{ download.body }}</a>
+                            </li>
+                        {% endfor %}
                     </ul>
                     <div class="call_box">
                         <div class="centre attention attention_border_bottom">Вы стали свидетелем или жертвойпринудительного труда?</div>
@@ -35,15 +37,14 @@
                     <div class="download_box">
                         <div class="title">Конвенции МОТ</div>
                             <ul class="download_list">
-                                <li><img src="{% static 'blogs/img/paper2.png' %}" class="bg_list"><span>Конвенция о принудительном или обязательном труде</span><a href="#" class="view_list"><img src="{% static 'blogs/img/eye2.png' %}"></a><a href="#" class="view_list downloader"><img src="{% static 'blogs/img/download.png' %}"></a></li>
-                                <li><img src="{% static 'blogs/img/paper2.png' %}" class="bg_list"><span>Конвенция о принудительном или обязательном труде</span><a href="#" class="view_list"><img src="{% static 'blogs/img/eye2.png' %}"></a><a href="#" class="view_list downloader"><img src="{% static 'blogs/img/download.png' %}"></a></li>
-                                <li><img src="{% static 'blogs/img/paper2.png' %}" class="bg_list"><span>Конвенция о принудительном или обязательном труде</span><a href="#" class="view_list"><img src="{% static 'blogs/img/eye2.png' %}"></a><a href="#" class="view_list downloader"><img src="{% static 'blogs/img/download.png' %}"></a></li>
-                                <li><img src="{% static 'blogs/img/paper2.png' %}" class="bg_list"><span>Конвенция о принудительном или обязательном труде</span><a href="#" class="view_list"><img src="{% static 'blogs/img/eye2.png' %}"></a><a href="#" class="view_list downloader"><img src="{% static 'blogs/img/download.png' %}"></a></li>
-                                <li><img src="{% static 'blogs/img/paper2.png' %}" class="bg_list"><span>Конвенция о принудительном или обязательном труде</span><a href="#" class="view_list"><img src="{% static 'blogs/img/eye2.png' %}"></a><a href="#" class="view_list downloader"><img src="{% static 'blogs/img/download.png' %}"></a></li>
-                                <li><img src="{% static 'blogs/img/paper2.png' %}" class="bg_list"><span>Конвенция о принудительном или обязательном труде</span><a href="#" class="view_list"><img src="{% static 'blogs/img/eye2.png' %}"></a><a href="#" class="view_list downloader"><img src="{% static 'blogs/img/download.png' %}"></a></li>
-                                <li><img src="{% static 'blogs/img/paper2.png' %}" class="bg_list"><span>Конвенция о принудительном или обязательном труде</span><a href="#" class="view_list"><img src="{% static 'blogs/img/eye2.png' %}"></a><a href="#" class="view_list downloader"><img src="{% static 'blogs/img/download.png' %}"></a></li>
-                                <li><img src="{% static 'blogs/img/paper2.png' %}" class="bg_list"><span>Конвенция о принудительном или обязательном труде</span><a href="#" class="view_list"><img src="{% static 'blogs/img/eye2.png' %}"></a><a href="#" class="view_list downloader"><img src="{% static 'blogs/img/download.png' %}"></a></li>
-                                <li><img src="{% static 'blogs/img/paper2.png' %}" class="bg_list"><span>Конвенция о принудительном или обязательном труде</span><a href="#" class="view_list"><img src="{% static 'blogs/img/eye2.png' %}"></a><a href="#" class="view_list downloader"><img src="{% static 'blogs/img/download.png' %}"></a></li>
+                                {% for download in object_list %}
+                                    <li>
+                                        <img src="{% static 'blogs/img/paper2.png' %}" class="bg_list">
+                                        <span>{{ download.body }}</span> 
+                                        <a href="{% url 'view_file' download.id %}" class="view_list"><img src="{% static 'blogs/img/eye2.png' %}"></a>
+                                        <a href="{% url 'download_file' download.id %}" class="view_list downloader"><img src="{% static 'blogs/img/download.png' %}"></a>
+                                    </li>
+                                {% endfor %}
                             </ul>
                         <div class="clearfix"></div>
                     </div>

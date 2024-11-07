@@ -24,6 +24,7 @@ urlpatterns = [
     path('', include('posts.urls')),
     path('', include('question.urls')),
     path('', include('appeal.urls')),
+    path('', include('files.urls')),
 ]
 
 if settings.DEBUG:

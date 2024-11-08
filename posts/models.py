@@ -25,3 +25,17 @@ class Post(models.Model):
     
     def get_absolute_url(self):
         return reverse("post_detail", args=[str(self.id)])
+
+class Slider(models.Model):
+    title = models.CharField(max_length=100)
+    body = models.TimeField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+class Link(models.Model):
+    image = models.ImageField(upload_to='images/', blank=True)
+    title = models.CharField(max_length=100)
+
+class Fact(models.Model):
+    image = models.ImageField(upload_to='images/', blank=True)
+    title = models.CharField(max_length=100)
+    body = models.TextField()

@@ -38,10 +38,9 @@
                     <div class="brown_list bg_brown">
                         <div class="title">Полезные ссылки</div>
                         <ul>
-                            <li><img src="{% static 'blogs/img/img_1.png' %}"><a href="https://www.ilo.org/ru">Международная организация труда</a></li>
-                            <li><img src="{% static 'blogs/img/img_2.png' %}"><a href="https://www.worldbank.org/ru/home">Группа Всемирного банка</a></li>
-                            <li><img src="{% static 'blogs/img/img_3.png' %}"><a href="https://www.ilo.org/ru/uzbekistan">Международная организация работодателей</a></li>
-                            <li><img src="{% static 'blogs/img/img_4.png' %}"><a href="https://lfpspb.com/">Международная конфедерация профсоюзов</a></li>
+                        {% for link in links %}
+                            <li>{% if link.image %}<img src="{{ link.image.url }}">{% endif %}<a href="https://www.ilo.org/ru">{{ link.title }}</a></li>
+                        {% endfor %}
                         </ul>
                     </div>
                 </div>

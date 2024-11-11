@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.shortcuts import render, redirect
 from appeal.models import Appeal
+from posts.models import Link, Slider
 
 # Create your views here.
 
@@ -13,4 +14,12 @@ def create_appeal(request):
         Appeal.objects.create(full_name=full_name, title=title, message=message)
 
         return redirect('home')
-    return render(request, 'appeal_form.html')
+    
+    slider_items = Slider.objects.all()
+    link_items = Link.objects.all()
+    context = {
+        'sliders': slider_items,
+        'links': link_items,
+    }
+
+    return render(request, 'appeal_form.html', context)

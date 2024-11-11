@@ -26,16 +26,47 @@ class Post(models.Model):
     def get_absolute_url(self):
         return reverse("post_detail", args=[str(self.id)])
 
+class MenuItem(models.Model):
+    name = models.CharField(max_length=100)
+    url = models.CharField(max_length=200)
+    parent = models.ForeignKey('self', null=True, blank=True, on_delete=models.SET_NULL, related_name='submenus')
+    is_active = models.BooleanField(default=False)
+    
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        ordering = ['id'] 
+
 class Slider(models.Model):
+    image = models.ImageField(upload_to='images/', blank=True)
     title = models.CharField(max_length=100)
-    body = models.TimeField()
+    body = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
+    def __str__(self):
+        return self.title
 
 class Link(models.Model):
     image = models.ImageField(upload_to='images/', blank=True)
     title = models.CharField(max_length=100)
+    def __str__(self):
+        return self.title
 
 class Fact(models.Model):
     image = models.ImageField(upload_to='images/', blank=True)
     title = models.CharField(max_length=100)
     body = models.TextField()
+    def __str__(self):
+        return self.title
+
+class Helpline(models.Model):
+    head = models.CharField(max_length=200, default='')
+    title = models.CharField(max_length=200)
+    federation_title = models.CharField(max_length=200, default='')
+    federation_number = models.CharField(max_length=100)
+    state_title = models.CharField(max_length=200, default='')
+    state_number = models.CharField(max_length=100)
+    tag = models.CharField(max_length=200, default='')
+    def __str__(self):
+        return self.title
+

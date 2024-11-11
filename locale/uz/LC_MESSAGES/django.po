@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-08 16:29+0500\n"
+"POT-Creation-Date: 2024-11-11 18:02+0500\n"
 "PO-Revision-Date: 2024-11-08 16:30+0500\n"
 "Last-Translator:   <>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -31,6 +31,22 @@ msgstr ""
 msgid "Uzbek"
 msgstr ""
 
-#: templates/base.html:108
-msgid "Главная"
-msgstr "Bosh sahifa"
+#: templates/base.html:37
+msgid "Кўриниш"
+msgstr ""
+
+#: templates/base.html:51
+msgid "Шрифт ўлчами"
+msgstr ""
+
+#: templates/base.html:54
+#, python-format
+msgid " %% га катталаштириш"
+msgstr ""
+
+#: templates/base.html:99
+msgid "Toggle navigation"
+msgstr ""
+
+#~ msgid "Главная"
+#~ msgstr "Bosh sahifa"

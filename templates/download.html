@@ -16,21 +16,23 @@
                         {% endfor %}
                     </ul>
                     <div class="call_box">
-                        <div class="centre attention attention_border_bottom">Вы стали свидетелем или жертвойпринудительного труда?</div>
-                        <div class="caller">
-                            <div class="centre">
-                                <div class="caller_text">Телефоны доверия</div>
+                        {% for helpline in helplines %}
+                            <div class="centre attention attention_border_bottom">{{ helpline.head }}</div>
+                            <div class="caller">
+                                <div class="centre">
+                                    <div class="caller_text">{{ helpline.title }}</div>
+                                </div>
+                                <div class="text">
+                                    <span>{{ helpline.federation_number }}</span>
+                                    {{ helpline.federation_title }}
+                                </div>
+                                <div class="text text_right">
+                                    <span>{{ helpline.state_number }}</span>
+                                    {{ helpline.state_title }}
+                                </div>
                             </div>
-                            <div class="text">
-                                <span>1092</span>
-                                Совет Федерации профсоюзов Узбекистана
-                            </div>
-                            <div class="text text_right">
-                                <span>200 06 01</span>
-                                Государственная правовая инспекция труда
-                            </div>
-                        </div>
-                        <div class="centre attention attention_border_top">Незамедлительно сообщите!</div>
+                            <div class="centre attention attention_border_top">{{ helpline.tag }}</div>
+                        {% endfor %}
                     </div>
                 </div>
                 <div class="col-md-8 column nopaderight">

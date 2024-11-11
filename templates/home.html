@@ -6,38 +6,37 @@
             <div class="container">
                 <div class="col-md-4 nopade">
                     <div class="call_box">
-                        <div class="centre attention attention_border_bottom">Вы стали свидетелем или жертвойпринудительного труда?</div>
-                        <div class="caller">
-                            <div class="centre">
-                                <div class="caller_text">Телефоны доверия</div>
+                        {% for helpline in helplines %}
+                            <div class="centre attention attention_border_bottom">{{ helpline.head }}</div>
+                            <div class="caller">
+                                <div class="centre">
+                                    <div class="caller_text">{{ helpline.title }}</div>
+                                </div>
+                                <div class="text">
+                                    <span>{{ helpline.federation_number }}</span>
+                                    {{ helpline.federation_title }}
+                                </div>
+                                <div class="text text_right">
+                                    <span>{{ helpline.state_number }}</span>
+                                    {{ helpline.state_title }}
+                                </div>
                             </div>
-                            <div class="text">
-                                <span>1092</span>
-                                Совет Федерации профсоюзов Узбекистана
-                            </div>
-                            <div class="text text_right">
-                                <span>200 06 01</span>
-                                Государственная правовая инспекция труда
-                            </div>
-                        </div>
-                        <div class="centre attention attention_border_top">Незамедлительно сообщите!</div>
+                            <div class="centre attention attention_border_top">{{ helpline.tag }}</div>
+                        {% endfor %}
                     </div>
                     <div class="title">Документы</div>
                     <ul class="list_news">
                         {% for download in documents %}
-                            <li>
-                                <div class="list_title">{{ download.title }}</div>
-                                <a href="#">{{ download.body }}</a>
+                            <li><div class="list_title">{{ download.title }}</div><a href="#">{{ download.body }}</a>
                             </li>
                         {% endfor %}
                     </ul>
                     <div class="brown_list bg_brown">
                         <div class="title">Полезные ссылки</div>
                         <ul>
-                            <li><img src="{% static 'blogs/img/img_1.png' %}"><a href="https://www.ilo.org/ru">Международная организация труда</a></li>
-                            <li><img src="{% static 'blogs/img/img_2.png' %}"><a href="https://www.worldbank.org/ru/home">Группа Всемирного банка</a></li>
-                            <li><img src="{% static 'blogs/img/img_3.png' %}"><a href="https://www.ilo.org/ru/uzbekistan">Международная организация работодателей</a></li>
-                            <li><img src="{% static 'blogs/img/img_4.png' %}"><a href="https://lfpspb.com/">Международная конфедерация профсоюзов</a></li>
+                        {% for link in links %}
+                            <li>{% if link.image %}<img src="{{ link.image.url }}">{% endif %}<a href="https://www.ilo.org/ru">{{ link.title }}</a></li>
+                        {% endfor %}
                         </ul>
                     </div>
                 </div>
@@ -78,11 +77,9 @@
                         <div class="work">
                             <div class="title"><a href="{% url 'questions' %}">Вопросы и ответы</a></div>
                             <div class="answer_box">
-                            {% for question in questions  %}
-                                <ul class="col-md-6 nopadeleft">
-                                    <li>{{ question.detail }}</li>
-                                </ul>
-                            {% endfor %}    
+                                {% for question in questions  %}
+                                    <ul class="col-md-6 nopadeleft"><li>{{ question.detail }}</li></ul>
+                                {% endfor %}    
                             </div>
                         </div>
                     </div>
@@ -91,10 +88,12 @@
                 <div class="photo_box relative">
                     <img src="{% static 'blogs/img/cotton.jpg' %}">
                     <div class="triangle_tick"></div>
+                    {% for fact in facts %}
                     <div class="photo_box_text bg_brown">
-                        <div class="box_title">Факт</div>
-                        <div class="box_text">По оценкам Международной организации труда (International Labour Organization, ILO), только в развивающихся странах вынуждены работать около <span>250</span> миллионов детей в возрасте от <span>5</span> до <span>14</span> лет. Из них 153 миллиона живет в Азии, 80 миллионов — в Африке и 17 миллионов — в Латинской Америке. Многие из них трудятся в условиях, которые опасны для их физического, духовного и эмоционального развития</div>
+                        <div class="box_title">{{ fact.title }}</div>
+                        <div class="box_text">{{ fact.body }}</div>
                     </div>
+                    {% endfor %}
                 </div>
                 <div class="clearfix"></div>
             </div>

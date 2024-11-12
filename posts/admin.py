@@ -8,6 +8,7 @@ from posts.models import (
     MenuItem,
     Post, 
     Slider,
+    Call,
     )
 
 # Register your models here.
@@ -26,3 +27,4 @@ class MenuItemAdmin(admin.ModelAdmin):
 
 admin.site.register(Menu)
 admin.site.register(MenuItem, MenuItemAdmin)
+admin.site.register(Call)

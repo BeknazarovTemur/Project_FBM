@@ -35,12 +35,11 @@
                         {% endfor %}
                     </div>
                     <div class="call_center">
+                        {% for call in calls %}
                         <div class="red_blog">
-                            <div class="centre red_name">Если у Вас имеются:</div>
+                            <div class="centre red_name">{{ call.head }}</div>
                             <ul>
-                                <li>вопросы касательно применения трудового законодательства;</li>
-                                <li>нарушения Ваших трудовых прав и гарантий;</li>
-                                <li>факты принудительного труда,, незаконного использования труда детей (в возрасте до 18 лет)</li>
+                                <li>{{ call.short_content }}</li>
                             </ul>
                         </div>
                         <div class="center_triangle">
@@ -49,26 +48,19 @@
                             <div class="centre red_name centre_text">ОБРАЩАЙТЕСЬ!</div>
                         </div>
                         <div class="blue_blog">
-                            <div class="centre blue_name">Телефоны доверия</div>
+                            <div class="centre blue_name">{{ call.title }}</div>
                             <div class="text">
-                                Юридическая
-                                клиника Совета
-                                Федерации
-                                профсоюзов
-                                Узбекистана
-                                <span>1092</span>
+                                {{ call.federation_content }}
+                                <span>{{ call.federation_number }}</span>
 
                             </div>
                             <div class="text text_right">
-                                Государственная
-                                правовая инспекция
-                                труда Министерства
-                                труда и социальной
-                                защиты населения
-                                <span>200 06 01</span>
+                                {{ call.state_content }}
+                                <span>{{ call.state_number }}</span>
                             </div>
                             <div class="clearfix"></div>
                         </div>
+                        {% endfor %}
                     </div>
 
                     <div class="brown_list bg_brown">

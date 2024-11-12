@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-11 18:02+0500\n"
-"PO-Revision-Date: 2024-11-08 16:30+0500\n"
+"POT-Creation-Date: 2024-11-12 14:25+0500\n"
+"PO-Revision-Date: 2024-11-12 14:42+0500\n"
 "Last-Translator:   <>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -21,32 +21,91 @@ msgstr ""
 
 #: core/settings.py:119
 msgid "English"
-msgstr ""
+msgstr "English"
 
 #: core/settings.py:120
 msgid "Russian"
-msgstr ""
+msgstr "Russian"
 
 #: core/settings.py:121
 msgid "Uzbek"
-msgstr ""
+msgstr "Uzbek"
+
+#: templates/base.html:28
+msgid "Поиск по сайту..."
+msgstr "Saytdan qaidirish..."
+
+#: templates/base.html:32
+msgid "Особые возможности"
+msgstr "Asosiy xususiyatlari"
+
+#: templates/base.html:32
+msgid "Версия для слабовидящих"
+msgstr "Ko'zi ojizlar uchun versiya"
 
 #: templates/base.html:37
-msgid "Кўриниш"
-msgstr ""
+msgid "Зрение"
+msgstr "Ko'rinish"
 
 #: templates/base.html:51
-msgid "Шрифт ўлчами"
-msgstr ""
+msgid "Размер шрифта"
+msgstr "Shrift o'lchami"
 
 #: templates/base.html:54
 #, python-format
-msgid " %% га катталаштириш"
-msgstr ""
+msgid "%% масштаб"
+msgstr "%% masshtab"
 
-#: templates/base.html:99
-msgid "Toggle navigation"
+#: templates/base.html:68
+msgid ""
+"Министерство труда\n"
+"                            и социальной защиты населения\n"
+"                            Рecпублики Узбекистан"
 msgstr ""
+"O‘zbekiston Respublikasi aholini ijtimoiy himoya qilish va Mehnat vazirligi"
+
+#: templates/base.html:77
+msgid ""
+"Реализация страновой программы достойного\n"
+"                            труда в Республике Узбекистан"
+msgstr ""
+"O‘zbekiston Respublikasida munosib mehnat bo‘yicha mamlakat dasturini amalga"
+" oshirish"
+
+#: templates/base.html:84
+msgid ""
+"Портал Федерации\n"
+"                            Профсоюзов Узбекистана"
+msgstr "O'zbekiston kasaba uyishmalari Federatsyasining Portali"
+
+#: templates/base.html:100
+msgid "Toggle navigation"
+msgstr "Navigatsiyani yoqish/yopish"
+
+#: templates/base.html:187
+msgid ""
+"Реализация страновой программы достойного\n"
+"                    труда в Республике Узбекистан"
+msgstr ""
+"O‘zbekiston Respublikasida munosib mehnat bo‘yicha mamlakat dasturini amalga"
+" oshirish"
+
+#: templates/base.html:192
+msgid ""
+"Сайт создан Министерством труда и социальной защиты населения Рecпублики "
+"Узбекистан совместно с Порталом Федерации Профсоюзов Узбекистана"
+msgstr ""
+"Sayt Oʻzbekiston Respublikasi Mehnat va aholini ijtimoiy muhofaza qilish "
+"vazirligi tomonidan Oʻzbekiston Kasaba uyushmalari federatsiyasi portali "
+"bilan hamkorlikda yaratilgan."
+
+#: templates/base.html:193
+msgid "© 2015 Все права защищены"
+msgstr "© 2015 Barcha huquqlar himoyalangan"
+
+#: templates/base.html:195
+msgid "Разработка"
+msgstr "Rivojlanish"
 
 #~ msgid "Главная"
 #~ msgstr "Bosh sahifa"

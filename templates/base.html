@@ -19,22 +19,22 @@
             <div class="bg_img"><img src="{% static 'blogs/img/bg_map.jpg' %}"></div>
             <div class="container relative">
                 <ul class="lang">
-                    <li class="active"><a href="#">Ўзб</a></li>
+                    <li class="active"><a href="#">O'zb</a></li>
                     <li><a href="#">Рус</a></li>
                     <li><a href="#">Eng</a></li>
                 </ul>
                 <div class="ways">
                     <form action="#" method="get" class="form_search relative">
-                        <input type="text" class="searchBox" name="" placeholder="Поиск по сайту...">
+                        <input type="text" class="searchBox" name="" placeholder="{% trans 'Поиск по сайту...' %}">
                         <button class="searchBtn" type="submit"><i class=""></i></button>
                     </form>
                     <div class="special_link">
-                        <a href="#" class="icon_accessibility dataTooltip" data-toggle="dropdown" data-placement="bottom" title="Махсус имкониятлар" aria-expanded="true">Версия для слабовидящих<img src="{% static 'blogs/img/eye.png' %}"></a>
+                        <a href="#" class="icon_accessibility dataTooltip" data-toggle="dropdown" data-placement="bottom" title="{% trans 'Особые возможности'%}" aria-expanded="true">{% trans 'Версия для слабовидящих'%}<img src="{% static 'blogs/img/eye.png' %}"></a>
                         <div class="dropdown-menu dropdown-menu-right specialViewArea no-propagation">
                             <div class="triangle2"></div>
 
                             <div class="appearance">
-                                <p class="specialTitle">{% trans 'Кўриниш'%}</p>
+                                <p class="specialTitle">{% trans 'Зрение'%}</p>
 
                                 <div class="squareAppearances">
                                     <div class="squareBox spcNormal" data-toggle="tooltip" data-placement="bottom" title="Оддий кўриниш">A</div>
@@ -48,10 +48,10 @@
                             </div>
 
                             <div class="appearance">
-                                <p class="specialTitle">{% trans 'Шрифт ўлчами' %}</p>
+                                <p class="specialTitle">{% trans 'Размер шрифта' %}</p>
 
                                 <div class="block">
-                                    <div class="sliderText"><span class="range"></span>{% trans '% га катталаштириш' %}</div>
+                                    <div class="sliderText"><span class="range"></span>{% trans '% масштаб' %}</div>
                                     <div id="fontSizer" class="defaultSlider ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all"><div class="ui-slider-range ui-widget-header ui-corner-all ui-slider-range-min" style="width: 0%;"></div><span class="ui-slider-handle ui-state-default ui-corner-all" tabindex="0" style="left: 0%;"></span></div>
                                 </div>
                             </div>
@@ -64,24 +64,25 @@
                 <div class="col-md-3 col-sm-3  col-xs-2 relative nopaderight">
                     <div class="left_blog">
                         <a href="#"><img src="{% static 'blogs/img/gerb.png' %}"></a>
-                        <a href="https://mehnat.uz/ru" class="left_blog_text">Министерство труда
+                        
+                        <a href="https://mehnat.uz/ru" class="left_blog_text">{% blocktrans %}Министерство труда
                             и социальной защиты населения
-                            Рecпублики Узбекистан
+                            Рecпублики Узбекистан{% endblocktrans %}
                         </a>
                     </div>
                 </div>
                 <div class="col-md-6 col-sm-6 col-xs-8">
                     <div id="fgdf" class="centre">
                         <a class="logo_name" href="{% url 'home' %}">www.fbm.uz</a>
-                        <div class="logo_text">Реализация страновой программы достойного
-                            труда в Республике Узбекистан</div>
+                        <div class="logo_text">{% blocktrans %}Реализация страновой программы достойного
+                            труда в Республике Узбекистан{% endblocktrans %}</div>
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-3 col-xs-2 nopadeleft">
                     <div class="right_blog">
                         <a href="https://kasaba.uz/ru/"><img src="{% static 'blogs/img/map_uz.png' %}"></a>
-                        <a href="https://kasaba.uz/ru/" class="right_blog_text">Портал Федерации
-                            Профсоюзов Узбекистана
+                        <a href="https://kasaba.uz/ru/" class="right_blog_text">{% blocktrans %}Портал Федерации
+                            Профсоюзов Узбекистана{% endblocktrans %}
                         </a>
                     </div>
                 </div>
@@ -183,15 +184,15 @@
         <div class="map_uz">
             <div class="centre">
                 <a class="logo_name" href="{% url 'home' %}">www.fbm.uz</a>
-                <div class="logo_text">Реализация страновой программы достойного
-                    труда в Республике Узбекистан</div>
+                <div class="logo_text">{% blocktrans %}Реализация страновой программы достойного
+                    труда в Республике Узбекистан{% endblocktrans %}</div>
             </div>
         </div>
         <div class="footer_text">
-            <div class="footer_name">Сайт создан Министерством труда и социальной защиты населения Рecпублики Узбекистан совместно с Порталом Федерации Профсоюзов Узбекистана</div>
-            <div>© 2015 Все права защищены</div>
+            <div class="footer_name">{% blocktrans %}Сайт создан Министерством труда и социальной защиты населения Рecпублики Узбекистан совместно с Порталом Федерации Профсоюзов Узбекистана{% endblocktrans %}</div>
+            <div>{% blocktrans %}© 2015 Все права защищены{% endblocktrans %}</div>
             <p>
-                Разработка
+                {% blocktrans %}Разработка{% endblocktrans %}
                 <a href="https://uzinfocom.uz/"><img src="{% static 'blogs/img/uzinfocom.png' %}"></a>
             </p>
         </div>

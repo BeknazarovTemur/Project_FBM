@@ -3,7 +3,7 @@ from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView
 from files.models import Document
 from question.models import Question
-from .models import Fact, Helpline, Link, MenuItem, Post, Slider, Menu
+from .models import Fact, Helpline, Link, Call, Post, Slider, Menu
 
 # Create your views here.
 
@@ -63,4 +63,5 @@ class CallListView(ListView):
         context['facts'] = Fact.objects.all()
         context['helplines'] = Helpline.objects.all()
         context['menus'] = Menu.objects.prefetch_related('items').all()
+        context['calls'] = Call.objects.all()
         return context

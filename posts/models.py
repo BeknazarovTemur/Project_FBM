@@ -78,4 +78,15 @@ class Helpline(models.Model):
     tag = models.CharField(max_length=200, default='')
     def __str__(self):
         return self.title
+    
+class Call(models.Model):
+    head = models.CharField(max_length=100)
+    short_content = models.TextField()
+    title = models.CharField(max_length=200)
+    federation_content = models.CharField(max_length=200, default='')
+    federation_number = models.CharField(max_length=100)
+    state_content = models.CharField(max_length=200)
+    state_number = models.CharField(max_length=100)
+    def __str__(self):
+        return self.title
 

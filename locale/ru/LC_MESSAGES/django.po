@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-11 18:02+0500\n"
-"PO-Revision-Date: 2024-11-12 12:45+0500\n"
+"POT-Creation-Date: 2024-11-12 14:25+0500\n"
+"PO-Revision-Date: 2024-11-12 14:42+0500\n"
 "Last-Translator:   <>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -31,22 +31,92 @@ msgstr "Русский"
 msgid "Uzbek"
 msgstr "Узбекиский"
 
+#: templates/base.html:28
+msgid "Поиск по сайту..."
+msgstr "Поиск по сайту..."
+
+#: templates/base.html:32
+msgid "Особые возможности"
+msgstr "Особые возможности"
+
+#: templates/base.html:32
+msgid "Версия для слабовидящих"
+msgstr "Версия для слабовидящих"
+
 #: templates/base.html:37
-msgid "Кўриниш"
-msgstr "Появление"
+msgid "Зрение"
+msgstr "Зрение"
 
 #: templates/base.html:51
-msgid "Шрифт ўлчами"
+msgid "Размер шрифта"
 msgstr "Размер шрифта"
 
 #: templates/base.html:54
 #, python-format
-msgid " %% га катталаштириш"
-msgstr "Размер в процентах"
+msgid "%% масштаб"
+msgstr "%% масштаб"
 
-#: templates/base.html:99
+#: templates/base.html:68
+msgid ""
+"Министерство труда\n"
+"                            и социальной защиты населения\n"
+"                            Рecпублики Узбекистан"
+msgstr ""
+"Министерство труда\n"
+"и социальной защиты населения\n"
+"Рecпублики Узбекистан"
+
+#: templates/base.html:77
+msgid ""
+"Реализация страновой программы достойного\n"
+"                            труда в Республике Узбекистан"
+msgstr ""
+"Реализация страновой программы достойного\n"
+"труда в Республике Узбекистан"
+
+#: templates/base.html:84
+msgid ""
+"Портал Федерации\n"
+"                            Профсоюзов Узбекистана"
+msgstr ""
+"Портал Федерации\n"
+"Профсоюзов Узбекистана"
+
+#: templates/base.html:100
 msgid "Toggle navigation"
 msgstr "Переключить навигацию"
+
+#: templates/base.html:187
+msgid ""
+"Реализация страновой программы достойного\n"
+"                    труда в Республике Узбекистан"
+msgstr "Toggle navigation"
+
+#: templates/base.html:192
+msgid ""
+"Сайт создан Министерством труда и социальной защиты населения Рecпублики "
+"Узбекистан совместно с Порталом Федерации Профсоюзов Узбекистана"
+msgstr ""
+"Реализация страновой программы достойного\n"
+"труда в Республике Узбекистан"
+
+#: templates/base.html:193
+msgid "© 2015 Все права защищены"
+msgstr "© 2015 Все права защищены"
+
+#: templates/base.html:195
+msgid "Разработка"
+msgstr "Разработка"
+
+#~ msgid "Кўриниш"
+#~ msgstr "Появление"
+
+#~ msgid "Шрифт ўлчами"
+#~ msgstr "Размер шрифта"
+
+#, python-format
+#~ msgid " %% га катталаштириш"
+#~ msgstr "Размер в процентах"
 
 #~ msgid "Главная"
 #~ msgstr "Главная"

@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-11-11 18:02+0500\n"
-"PO-Revision-Date: 2024-11-11 18:05+0500\n"
+"PO-Revision-Date: 2024-11-12 12:43+0500\n"
 "Last-Translator:   <>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -36,12 +36,11 @@ msgid "Кўриниш"
 msgstr "Appearance"
 
 #: templates/base.html:51
-#, fuzzy
 msgid "Шрифт ўлчами"
 msgstr "Font size"
 
 #: templates/base.html:54
-#, fuzzy, python-format
+#, python-format
 msgid " %% га катталаштириш"
 msgstr " changed by %"
 

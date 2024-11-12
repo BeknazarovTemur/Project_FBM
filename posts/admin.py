@@ -4,6 +4,7 @@ from posts.models import (
     Fact, 
     Helpline, 
     Link, 
+    Menu,
     MenuItem,
     Post, 
     Slider,
@@ -19,8 +20,9 @@ admin.site.register(Fact)
 admin.site.register(Helpline)
 
 class MenuItemAdmin(admin.ModelAdmin):
-    list_display = ['name', 'url', 'parent', 'is_active']
-    list_filter = ['parent', 'is_active']
-    search_fields = ['name', 'url']
+    list_display = ('name', 'menu', 'parent', 'is_active')
+    list_filter = ('menu', 'parent', 'is_active')
+    search_fields = ('name',)
 
+admin.site.register(Menu)
 admin.site.register(MenuItem, MenuItemAdmin)

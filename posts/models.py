@@ -26,12 +26,21 @@ class Post(models.Model):
     def get_absolute_url(self):
         return reverse("post_detail", args=[str(self.id)])
 
-class MenuItem(models.Model):
+class Menu(models.Model):
     name = models.CharField(max_length=100)
-    url = models.CharField(max_length=200)
-    parent = models.ForeignKey('self', null=True, blank=True, on_delete=models.SET_NULL, related_name='submenus')
-    is_active = models.BooleanField(default=False)
-    
+    url = models.URLField(blank=True, null=True)
+
+
+    def __str__(self):
+        return self.name
+
+class MenuItem(models.Model):
+    menu = models.ForeignKey(Menu, related_name="items", on_delete=models.CASCADE, default='')
+    name = models.CharField(max_length=100, default='')
+    url = models.URLField(blank=True, null=True)
+    parent = models.ForeignKey('self', null=True, blank=True, related_name='children', on_delete=models.CASCADE)
+    is_active = models.BooleanField(default=True)
+
     def __str__(self):
         return self.name
 

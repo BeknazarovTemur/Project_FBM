@@ -1,4 +1,6 @@
 from django.contrib import admin
+from django import forms
+from django.contrib import admin
 from posts.models import (
     Category, 
     Fact, 
@@ -19,6 +21,14 @@ admin.site.register(Slider)
 admin.site.register(Link)
 admin.site.register(Fact)
 admin.site.register(Helpline)
+
+class PostAdminForm(forms.ModelForm):
+    product_ru = forms.CharField(label="Описание")
+    product_en = forms.CharField(label="Описание")
+
+    class Meta:
+        model = Post
+        fields = '__all__'
 
 class MenuItemAdmin(admin.ModelAdmin):
     list_display = ('name', 'menu', 'parent', 'is_active')

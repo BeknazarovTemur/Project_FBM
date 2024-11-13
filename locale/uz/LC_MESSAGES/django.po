@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-12 14:25+0500\n"
-"PO-Revision-Date: 2024-11-12 14:42+0500\n"
+"POT-Creation-Date: 2024-11-13 14:23+0500\n"
+"PO-Revision-Date: 2024-11-13 12:58+0500\n"
 "Last-Translator:   <>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -19,44 +19,64 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Translated-Using: django-rosetta 0.10.1\n"
 
-#: core/settings.py:119
+#: core/settings.py:120
 msgid "English"
 msgstr "English"
 
-#: core/settings.py:120
+#: core/settings.py:121
 msgid "Russian"
 msgstr "Russian"
 
-#: core/settings.py:121
+#: core/settings.py:122
 msgid "Uzbek"
 msgstr "Uzbek"
 
-#: templates/base.html:28
+#: posts/models.py:31 posts/models.py:39
+msgid "Name"
+msgstr "Nomi"
+
+#: posts/models.py:32 posts/models.py:40
+msgid "URL"
+msgstr "Url"
+
+#: templates/base.html:39
 msgid "Поиск по сайту..."
 msgstr "Saytdan qaidirish..."
 
-#: templates/base.html:32
+#: templates/base.html:43
 msgid "Особые возможности"
 msgstr "Asosiy xususiyatlari"
 
-#: templates/base.html:32
+#: templates/base.html:43
 msgid "Версия для слабовидящих"
 msgstr "Ko'zi ojizlar uchun versiya"
 
-#: templates/base.html:37
+#: templates/base.html:48
 msgid "Зрение"
 msgstr "Ko'rinish"
 
 #: templates/base.html:51
+msgid "Обычный вид"
+msgstr "Oddiy ko'rinish"
+
+#: templates/base.html:54
+msgid "Черно-белый вид"
+msgstr "Oq-qora ko'rinish"
+
+#: templates/base.html:57
+msgid "Затемненный вид"
+msgstr "Qorong'ulashgan ko'rinish"
+
+#: templates/base.html:62
 msgid "Размер шрифта"
 msgstr "Shrift o'lchami"
 
-#: templates/base.html:54
+#: templates/base.html:65
 #, python-format
 msgid "%% масштаб"
 msgstr "%% masshtab"
 
-#: templates/base.html:68
+#: templates/base.html:79
 msgid ""
 "Министерство труда\n"
 "                            и социальной защиты населения\n"
@@ -64,33 +84,33 @@ msgid ""
 msgstr ""
 "O‘zbekiston Respublikasi aholini ijtimoiy himoya qilish va Mehnat vazirligi"
 
-#: templates/base.html:77
+#: templates/base.html:88
 msgid ""
 "Реализация страновой программы достойного\n"
 "                            труда в Республике Узбекистан"
 msgstr ""
-"O‘zbekiston Respublikasida munosib mehnat bo‘yicha mamlakat dasturini amalga"
-" oshirish"
+"O‘zbekiston Respublikasida munosib mehnat bo‘yicha mamlakat dasturini amalga "
+"oshirish"
 
-#: templates/base.html:84
+#: templates/base.html:95
 msgid ""
 "Портал Федерации\n"
 "                            Профсоюзов Узбекистана"
 msgstr "O'zbekiston kasaba uyishmalari Federatsyasining Portali"
 
-#: templates/base.html:100
+#: templates/base.html:111
 msgid "Toggle navigation"
 msgstr "Navigatsiyani yoqish/yopish"
 
-#: templates/base.html:187
+#: templates/base.html:198
 msgid ""
 "Реализация страновой программы достойного\n"
 "                    труда в Республике Узбекистан"
 msgstr ""
-"O‘zbekiston Respublikasida munosib mehnat bo‘yicha mamlakat dasturini amalga"
-" oshirish"
+"O‘zbekiston Respublikasida munosib mehnat bo‘yicha mamlakat dasturini amalga "
+"oshirish"
 
-#: templates/base.html:192
+#: templates/base.html:203
 msgid ""
 "Сайт создан Министерством труда и социальной защиты населения Рecпублики "
 "Узбекистан совместно с Порталом Федерации Профсоюзов Узбекистана"
@@ -99,11 +119,11 @@ msgstr ""
 "vazirligi tomonidan Oʻzbekiston Kasaba uyushmalari federatsiyasi portali "
 "bilan hamkorlikda yaratilgan."
 
-#: templates/base.html:193
+#: templates/base.html:204
 msgid "© 2015 Все права защищены"
 msgstr "© 2015 Barcha huquqlar himoyalangan"
 
-#: templates/base.html:195
+#: templates/base.html:206
 msgid "Разработка"
 msgstr "Rivojlanish"
 

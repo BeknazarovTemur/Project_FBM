@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-12 14:25+0500\n"
-"PO-Revision-Date: 2024-11-12 14:27+0500\n"
+"POT-Creation-Date: 2024-11-13 14:23+0500\n"
+"PO-Revision-Date: 2024-11-13 12:58+0500\n"
 "Last-Translator:   <>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -19,44 +19,64 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Translated-Using: django-rosetta 0.10.1\n"
 
-#: core/settings.py:119
+#: core/settings.py:120
 msgid "English"
 msgstr "English"
 
-#: core/settings.py:120
+#: core/settings.py:121
 msgid "Russian"
 msgstr "Russian"
 
-#: core/settings.py:121
+#: core/settings.py:122
 msgid "Uzbek"
 msgstr "Uzbek"
 
-#: templates/base.html:28
+#: posts/models.py:31 posts/models.py:39
+msgid "Name"
+msgstr "Name"
+
+#: posts/models.py:32 posts/models.py:40
+msgid "URL"
+msgstr "Url"
+
+#: templates/base.html:39
 msgid "Поиск по сайту..."
 msgstr "Search the site..."
 
-#: templates/base.html:32
+#: templates/base.html:43
 msgid "Особые возможности"
 msgstr "Special features"
 
-#: templates/base.html:32
+#: templates/base.html:43
 msgid "Версия для слабовидящих"
 msgstr "Version for the visually impaired"
 
-#: templates/base.html:37
+#: templates/base.html:48
 msgid "Зрение"
 msgstr "Vision"
 
 #: templates/base.html:51
+msgid "Обычный вид"
+msgstr "Normal view"
+
+#: templates/base.html:54
+msgid "Черно-белый вид"
+msgstr "Black and white view"
+
+#: templates/base.html:57
+msgid "Затемненный вид"
+msgstr "Darkened view"
+
+#: templates/base.html:62
 msgid "Размер шрифта"
 msgstr "Font size"
 
-#: templates/base.html:54
+#: templates/base.html:65
 #, python-format
 msgid "%% масштаб"
 msgstr "%% scale"
 
-#: templates/base.html:68
+#: templates/base.html:79
 msgid ""
 "Министерство труда\n"
 "                            и социальной защиты населения\n"
@@ -66,11 +86,7 @@ msgstr ""
 "and Social Protection of the Population\n"
 "of the Republic of Uzbekistan"
 
-#: templates/base.html:77
-#| msgid ""
-#| "Министерство труда\n"
-#| "                            и социальной защиты населения\n"
-#| "                            Рecпублики Узбекистан"
+#: templates/base.html:88
 msgid ""
 "Реализация страновой программы достойного\n"
 "                            труда в Республике Узбекистан"
@@ -79,17 +95,17 @@ msgstr ""
 "and Social Protection of the Population\n"
 "of the Republic of Uzbekistan"
 
-#: templates/base.html:84
+#: templates/base.html:95
 msgid ""
 "Портал Федерации\n"
 "                            Профсоюзов Узбекистана"
 msgstr "Portal of the Federation of Trade Unions of Uzbekistan"
 
-#: templates/base.html:100
+#: templates/base.html:111
 msgid "Toggle navigation"
 msgstr "Toggle navigation"
 
-#: templates/base.html:187
+#: templates/base.html:198
 msgid ""
 "Реализация страновой программы достойного\n"
 "                    труда в Республике Узбекистан"
@@ -97,7 +113,7 @@ msgstr ""
 "Implementation of the Decent Work Country Program in the Republic of "
 "Uzbekistan"
 
-#: templates/base.html:192
+#: templates/base.html:203
 msgid ""
 "Сайт создан Министерством труда и социальной защиты населения Рecпублики "
 "Узбекистан совместно с Порталом Федерации Профсоюзов Узбекистана"
@@ -106,13 +122,16 @@ msgstr ""
 "Population of the Republic of Uzbekistan jointly with the Portal of the "
 "Federation of Trade Unions of Uzbekistan"
 
-#: templates/base.html:193
+#: templates/base.html:204
 msgid "© 2015 Все права защищены"
 msgstr "© 2015 All rights reserved"
 
-#: templates/base.html:195
+#: templates/base.html:206
 msgid "Разработка"
 msgstr "Development"
+
+#~ msgid "Url"
+#~ msgstr "Url"
 
 #~ msgid "Кўриниш"
 #~ msgstr "Appearance"

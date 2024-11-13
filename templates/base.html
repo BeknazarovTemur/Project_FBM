@@ -18,11 +18,22 @@
         <div class="head">
             <div class="bg_img"><img src="{% static 'blogs/img/bg_map.jpg' %}"></div>
             <div class="container relative">
-                <ul class="lang">
-                    <li class="active"><a href="#">O'zb</a></li>
-                    <li><a href="#">Рус</a></li>
-                    <li><a href="#">Eng</a></li>
-                </ul>
+                <form action="{% url 'set_language' %}" method="post" id="language_form">
+                    {% csrf_token %}
+                    <input type="hidden" name="next" value="{{ request.path }}">
+                    <ul class="lang">
+                        {% get_current_language as LANGUAGE_CODE %}
+                        {% get_available_languages as LANGUAGES %}
+                        {% for lang_code, lang_name in LANGUAGES %}
+                            <li class="{% if lang_code == LANGUAGE_CODE %}active{% endif %}">
+                                <a href="#" onclick="event.preventDefault(); document.getElementById('language_form_language').value='{{ lang_code }}'; document.getElementById('language_form').submit();">
+                                    {% if lang_code == 'uz' %}O'zb{% elif lang_code == 'ru' %}Рус{% elif lang_code == 'en' %}Eng{% else %}{{ lang_name }}{% endif %}
+                                </a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                    <input type="hidden" name="language" id="language_form_language">
+                </form>
                 <div class="ways">
                     <form action="#" method="get" class="form_search relative">
                         <input type="text" class="searchBox" name="" placeholder="{% trans 'Поиск по сайту...' %}">
@@ -37,13 +48,13 @@
                                 <p class="specialTitle">{% trans 'Зрение'%}</p>
 
                                 <div class="squareAppearances">
-                                    <div class="squareBox spcNormal" data-toggle="tooltip" data-placement="bottom" title="Оддий кўриниш">A</div>
+                                    <div class="squareBox spcNormal" data-toggle="tooltip" data-placement="bottom" title="{% trans 'Обычный вид' %}">A</div>
                                 </div>
                                 <div class="squareAppearances">
-                                    <div class="squareBox spcWhiteAndBlack" data-toggle="tooltip" data-placement="bottom" title="Оқ-қора кўриниш">A</div>
+                                    <div class="squareBox spcWhiteAndBlack" data-toggle="tooltip" data-placement="bottom" title="{% trans 'Черно-белый вид' %}">A</div>
                                 </div>
                                 <div class="squareAppearances">
-                                    <div class="squareBox spcDark" data-toggle="tooltip" data-placement="bottom" title="Қоронғилашган кўриниш">A</div>
+                                    <div class="squareBox spcDark" data-toggle="tooltip" data-placement="bottom" title="{% trans 'Затемненный вид' %}">A</div>
                                 </div>
                             </div>
 

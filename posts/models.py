@@ -17,7 +17,7 @@ class Category(models.Model):
 class Post(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE, verbose_name=("category"))
     title = models.CharField(max_length=100, verbose_name=("title"))
-    short_content = models.CharField(max_length=200, blank=True, verbose_name=("short_content"))
+    short_content = RichTextField(max_length=300, blank=True, verbose_name=("short_content"))
     content = RichTextField(verbose_name="content")
     image = models.ImageField(upload_to='images/', blank=True)
     date = models.DateTimeField(auto_now_add=True)

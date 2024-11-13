@@ -3,6 +3,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
+from ckeditor.fields import RichTextField
 
 # Create your models here.
 
@@ -17,7 +18,7 @@ class Post(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE, verbose_name=("category"))
     title = models.CharField(max_length=100, verbose_name=("title"))
     short_content = models.CharField(max_length=200, blank=True, verbose_name=("short_content"))
-    content = models.TextField(verbose_name="content")
+    content = RichTextField(verbose_name="content")
     image = models.ImageField(upload_to='images/', blank=True)
     date = models.DateTimeField(auto_now_add=True)
 
@@ -50,7 +51,7 @@ class MenuItem(models.Model):
 class Slider(models.Model):
     image = models.ImageField(upload_to='images/', blank=True)
     title = models.CharField(max_length=100, verbose_name=("title"))
-    body = models.TextField(verbose_name=("body"))
+    body = RichTextField(verbose_name=("body"))
     created_at = models.DateTimeField(auto_now_add=True)
     def __str__(self):
         return self.title
@@ -64,7 +65,7 @@ class Link(models.Model):
 class Fact(models.Model):
     image = models.ImageField(upload_to='images/', blank=True)
     title = models.CharField(max_length=100, verbose_name="title")
-    body = models.TextField(verbose_name=("body"))
+    body = RichTextField(verbose_name=("body"))
     def __str__(self):
         return self.title
 
@@ -81,7 +82,7 @@ class Helpline(models.Model):
     
 class Call(models.Model):
     head = models.CharField(max_length=100, verbose_name=("head"))
-    short_content = models.TextField(verbose_name=("short_content"))
+    short_content = RichTextField(verbose_name=("short_content"))
     title = models.CharField(max_length=200, verbose_name=("title"))
     federation_content = models.CharField(max_length=200, default='', verbose_name=("federation_content"))
     federation_number = models.CharField(max_length=100, verbose_name=("federation_number"))

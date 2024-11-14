@@ -1,17 +1,18 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load i18n %}
 
 {% block content %}
 
         <div class="center_box">
             <div class="container">
                 <div class="col-md-4 nopade">
-                    <div class="title">Документы</div>
+                    <div class="title">{% trans 'Документы'%}</div>
                     <ul class="list_news">
                         {% for download in object_list %}
                             <li>
-                                <div class="list_title">{{ download.title }}</div>
-                                <a href="#">{{ download.body }}</a>
+                                <div class="list_title">{{ download.title|safe }}</div>
+                                <a href="#">{{ download.body|safe }}</a>
                             </li>
                         {% endfor %}
                     </ul>
@@ -37,12 +38,12 @@
                 </div>
                 <div class="col-md-8 column nopaderight">
                     <div class="download_box">
-                        <div class="title">Конвенции МОТ</div>
+                        <div class="title">{% trans 'Конвенции МОТ'%}</div>
                             <ul class="download_list">
                                 {% for download in object_list %}
                                     <li>
                                         <img src="{% static 'blogs/img/paper2.png' %}" class="bg_list">
-                                        <span>{{ download.body }}</span> 
+                                        <span>{{ download.body|safe }}</span> 
                                         <a href="{% url 'view_file' download.id %}" class="view_list"><img src="{% static 'blogs/img/eye2.png' %}"></a>
                                         <a href="{% url 'download_file' download.id %}" class="view_list downloader"><img src="{% static 'blogs/img/download.png' %}"></a>
                                     </li>

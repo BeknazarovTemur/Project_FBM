@@ -26,10 +26,12 @@ def create_question(request):
         Question.objects.create(number=number, title=title, detail=detail)
 
         return redirect('questions')
+    menu_list = Menu.objects.all()
     document_list = Document.objects.all()
     slider_items = Slider.objects.all()
     link_items = Link.objects.all()
     context = {
+        'menus': menu_list,
         'documents': document_list,
         'sliders': slider_items,
         'links': link_items,

@@ -11,6 +11,11 @@ class Category(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     name = models.CharField(max_length=50)
 
+    class Meta:
+        verbose_name = _("Category")
+        verbose_name_plural = _('Categories')
+
+
     def __str__(self):
         return self.name
     
@@ -22,6 +27,10 @@ class Post(models.Model):
     image = models.ImageField(upload_to='images/', blank=True)
     date = models.DateTimeField(auto_now_add=True)
 
+    class Meta:
+        verbose_name = _("Post")
+        verbose_name_plural = _('Posts')
+
     def __str__(self):
         return self.title
     
@@ -32,6 +41,10 @@ class Menu(models.Model):
     name = models.CharField(max_length=100, verbose_name=_("Name"))
     url = models.URLField(blank=True, null=True, verbose_name=_("URL"))
 
+    class Meta:
+        verbose_name = _("Menu")
+        verbose_name_plural = _('Menus')
+
     def __str__(self):
         return self.name
 
@@ -41,6 +54,10 @@ class MenuItem(models.Model):
     url = models.URLField(blank=True, null=True, verbose_name=_("URL"))
     parent = models.ForeignKey('self', null=True, blank=True, related_name='children', on_delete=models.CASCADE)
     is_active = models.BooleanField(default=True)
+
+    class Meta:
+        verbose_name = _("MenuItem")
+        verbose_name_plural = _('MenuItems')
 
     def __str__(self):
         return self.name
@@ -53,12 +70,22 @@ class Slider(models.Model):
     title = models.CharField(max_length=100, verbose_name=("title"))
     body = RichTextField(verbose_name=("body"))
     created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        verbose_name = _("Slider")
+        verbose_name_plural = _('Sliders')
+
     def __str__(self):
         return self.title
 
 class Link(models.Model):
     image = models.ImageField(upload_to='images/', blank=True)
     title = models.CharField(max_length=100, verbose_name=("title"))
+
+    class Meta:
+        verbose_name = _("Link")
+        verbose_name_plural = _('Links')
+
     def __str__(self):
         return self.title
 
@@ -66,6 +93,11 @@ class Fact(models.Model):
     image = models.ImageField(upload_to='images/', blank=True)
     title = models.CharField(max_length=100, verbose_name="title")
     body = RichTextField(verbose_name=("body"))
+
+    class Meta:
+        verbose_name = _("Fact")
+        verbose_name_plural = _('Facts')
+
     def __str__(self):
         return self.title
 
@@ -77,6 +109,11 @@ class Helpline(models.Model):
     state_title = models.CharField(max_length=200, default='', verbose_name=("state_title"))
     state_number = models.CharField(max_length=100, verbose_name=("state_number"))
     tag = models.CharField(max_length=200, default='', verbose_name=("tag"))
+
+    class Meta:
+        verbose_name = _("Helpline")
+        verbose_name_plural = _('Helplines')
+
     def __str__(self):
         return self.title
     
@@ -88,5 +125,10 @@ class Call(models.Model):
     federation_number = models.CharField(max_length=100, verbose_name=("federation_number"))
     state_content = models.CharField(max_length=200, verbose_name=("state_content"))
     state_number = models.CharField(max_length=100, verbose_name=("state_number"))
+
+    class Meta:
+        verbose_name = _("Call")
+        verbose_name_plural = _('Calls')
+
     def __str__(self):
         return self.title

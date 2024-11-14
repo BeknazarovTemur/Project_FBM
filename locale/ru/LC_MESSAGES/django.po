@@ -8,38 +8,168 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-13 14:23+0500\n"
-"PO-Revision-Date: 2024-11-13 12:58+0500\n"
+"POT-Creation-Date: 2024-11-14 16:37+0500\n"
+"PO-Revision-Date: 2024-11-14 16:44+0500\n"
 "Last-Translator:   <>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
-"(n%100>=11 && n%100<=14)? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
 "X-Translated-Using: django-rosetta 0.10.1\n"
 
-#: core/settings.py:120
+#: appeal/models.py:14 templates/appeal_form.html:34
+msgid "Appeal"
+msgstr "Обращаться"
+
+#: appeal/models.py:15
+msgid "Appeals"
+msgstr "Апелляции"
+
+#: core/settings.py:122
 msgid "English"
 msgstr "Английский"
 
-#: core/settings.py:121
+#: core/settings.py:123
 msgid "Russian"
 msgstr "Русский"
 
-#: core/settings.py:122
+#: core/settings.py:124
 msgid "Uzbek"
 msgstr "Узбекиский"
 
-#: posts/models.py:31 posts/models.py:39
+#: files/models.py:17
+msgid "Document"
+msgstr "Документ"
+
+#: files/models.py:18
+msgid "Documents"
+msgstr "Документы"
+
+#: posts/models.py:15
+msgid "Category"
+msgstr "Категория"
+
+#: posts/models.py:16
+msgid "Categories"
+msgstr "Категории"
+
+#: posts/models.py:31
+msgid "Post"
+msgstr "Пост"
+
+#: posts/models.py:32
+msgid "Posts"
+msgstr "Посты"
+
+#: posts/models.py:41 posts/models.py:53
 msgid "Name"
 msgstr "Имя"
 
-#: posts/models.py:32 posts/models.py:40
+#: posts/models.py:42 posts/models.py:54
 msgid "URL"
 msgstr "Url"
+
+#: posts/models.py:45
+msgid "Menu"
+msgstr "Меню"
+
+#: posts/models.py:46
+msgid "Menus"
+msgstr "Меню"
+
+#: posts/models.py:59
+msgid "MenuItem"
+msgstr "ПунктМеню"
+
+#: posts/models.py:60
+msgid "MenuItems"
+msgstr "ПунктыМеню"
+
+#: posts/models.py:75
+msgid "Slider"
+msgstr "Слайдер"
+
+#: posts/models.py:76
+msgid "Sliders"
+msgstr "Слайдеры"
+
+#: posts/models.py:86
+msgid "Link"
+msgstr "Ссылка"
+
+#: posts/models.py:87
+msgid "Links"
+msgstr "Ссылкы"
+
+#: posts/models.py:98
+msgid "Fact"
+msgstr "Факт"
+
+#: posts/models.py:99
+msgid "Facts"
+msgstr "Факты"
+
+#: posts/models.py:114
+msgid "Helpline"
+msgstr "Телефоны доверия"
+
+#: posts/models.py:115
+msgid "Helplines"
+msgstr "Телефоны доверии"
+
+#: posts/models.py:130
+msgid "Call"
+msgstr "Вызов"
+
+#: posts/models.py:131
+msgid "Calls"
+msgstr "Звонки"
+
+#: question/models.py:13
+msgid "Question"
+msgstr "Вопрос"
+
+#: question/models.py:14
+msgid "Questions"
+msgstr "Вопросы"
+
+#: templates/appeal_form.html:9 templates/call.html:10
+#: templates/download.html:10 templates/home.html:28 templates/news.html:10
+#: templates/post_detail.html:9 templates/question.html:8
+#: templates/question_form.html:9
+msgid "Документы"
+msgstr "Документы"
+
+#: templates/appeal_form.html:21 templates/home.html:49
+#: templates/post_detail.html:32 templates/question.html:23
+msgid "Отправить обращение"
+msgstr "Отправить обращение"
+
+#: templates/appeal_form.html:26
+msgid "Full Name"
+msgstr "Имя"
+
+#: templates/appeal_form.html:27
+msgid "Write your full name"
+msgstr "Напишите свое полное имя"
+
+#: templates/appeal_form.html:30 templates/question_form.html:33
+msgid "Title"
+msgstr "Заголовок"
+
+#: templates/appeal_form.html:31
+msgid "Write the title of your question!"
+msgstr "Напишите название вашего вопроса!"
+
+#: templates/appeal_form.html:35
+msgid "Write your appeal..."
+msgstr "Напишите апелляцию..."
+
+#: templates/appeal_form.html:37 templates/question_form.html:40
+msgid "Send"
+msgstr "Отправлять"
 
 #: templates/base.html:39
 msgid "Поиск по сайту..."
@@ -129,6 +259,71 @@ msgstr "© 2015 Все права защищены"
 #: templates/base.html:206
 msgid "Разработка"
 msgstr "Разработка"
+
+#: templates/call.html:49
+msgid "ОБРАЩАЙТЕСЬ!"
+msgstr "ОБРАЩАЙТЕСЬ!"
+
+#: templates/call.html:68 templates/home.html:36 templates/news.html:40
+#: templates/post_detail.html:19
+msgid "Полезные ссылки"
+msgstr "Полезные ссылки"
+
+#: templates/call.html:80 templates/home.html:62 templates/news.html:50
+#: templates/post_detail.html:43
+msgid "Новости"
+msgstr "Новости"
+
+#: templates/call.html:94 templates/home.html:79 templates/news.html:64
+#: templates/post_detail.html:57 templates/question.html:37
+msgid "Вопросы и ответы"
+msgstr "Вопросы и ответы"
+
+#: templates/download.html:41
+msgid "Конвенции МОТ"
+msgstr "Конвенции МОТ"
+
+#: templates/home.html:49 templates/post_detail.html:32
+#: templates/question.html:23
+msgid "Отправка заявлений, предложений и жалоб  в лектронном виде"
+msgstr "Отправка заявлений, предложений и жалоб в лектронном виде"
+
+#: templates/home.html:56 templates/post_detail.html:39
+#: templates/question.html:30
+msgid "Задать вопрос"
+msgstr "Задать вопрос"
+
+#: templates/home.html:56 templates/post_detail.html:39
+msgid "Задайте свой вопрос в сфере законодательства в режиме онлайн"
+msgstr "Задайте свой вопрос в сфере законодательства в режиме онлайн"
+
+#: templates/question.html:30
+msgid " Задайте свой вопрос в сфере законодательства в режиме онлайн "
+msgstr "Задайте свой вопрос в сфере законодательства в режиме онлайн"
+
+#: templates/question_form.html:22
+msgid "СОЗДАТЬ ВОПРОС"
+msgstr "СОЗДАТЬ ВОПРОС"
+
+#: templates/question_form.html:29
+msgid "Phone number"
+msgstr "Номер телефона"
+
+#: templates/question_form.html:30
+msgid "Enter Your Phone Number"
+msgstr "Номер телефона"
+
+#: templates/question_form.html:34
+msgid "Write the title of your question! "
+msgstr "Напишите название вашего вопроса!"
+
+#: templates/question_form.html:37
+msgid "Detail"
+msgstr "Деталь"
+
+#: templates/question_form.html:38
+msgid "Enter Details... "
+msgstr "Введите данные..."
 
 #~ msgid "Кўриниш"
 #~ msgstr "Появление"

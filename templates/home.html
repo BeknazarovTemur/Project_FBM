@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load i18n %}
 
 {% block content %}
         <div class="center_box">
@@ -24,15 +25,15 @@
                             <div class="centre attention attention_border_top">{{ helpline.tag }}</div>
                         {% endfor %}
                     </div>
-                    <div class="title">Документы</div>
+                    <div class="title">{% trans 'Документы'%}</div>
                     <ul class="list_news">
                         {% for download in documents %}
-                            <li><div class="list_title">{{ download.title }}</div><a href="#">{{ download.body }}</a>
+                            <li><div class="list_title">{{ download.title }}</div><a href="#">{{ download.body|safe }}</a>
                             </li>
                         {% endfor %}
                     </ul>
                     <div class="brown_list bg_brown">
-                        <div class="title">Полезные ссылки</div>
+                        <div class="title">{% trans 'Полезные ссылки'%}</div>
                         <ul>
                         {% for link in links %}
                             <li>{% if link.image %}<img src="{{ link.image.url }}">{% endif %}<a href="https://www.ilo.org/ru">{{ link.title }}</a></li>
@@ -45,40 +46,40 @@
                         <div class="col-md-6 nopade relative">
                             <a href="{% url 'appeal_form' %}" class="green_box">
                                 <div class="table_link">
-                                    <span>Отправить обращение</span>Отправка заявлений, предложений и жалоб  в лектронном виде
+                                    <span>{% trans 'Отправить обращение'%}</span>{% blocktrans %}Отправка заявлений, предложений и жалоб  в лектронном виде{% endblocktrans %}
                                 </div>
                             </a>
                         </div>
                         <div class="col-md-6 nopade relative">
                             <a href="{% url 'question_form' %}" class="blue_box">
                                 <div class="table_link">
-                                    <span>Задать вопрос</span>Задайте свой вопрос в сфере законодательства в режиме онлайн
+                                    <span>{% trans 'Задать вопрос'%}</span>{% blocktrans %}Задайте свой вопрос в сфере законодательства в режиме онлайн{% endblocktrans %}
                                 </div>
                             </a>
                         </div>
                         <div class="clearfix"></div>
                         <div class="anons">
-                            <div class="title">Новости</div>
-                            <ul class="col-md-6">
+                            <div class="title">{% trans 'Новости'%}</div>
                             {% for post in object_list %}
-                                <li>
-                                    {% if post.image %}
-                                        <img src="{{ post.image.url }}">
-                                    {% endif %}
-                                    <a href="{% url 'post_detail' post.pk  %}" class="anons_link">{{ post.title }}</a>
-                                    <span class="text_anons">{{ post.short_content }}</span>
-                                    <div class="min_date">{{ post.date }}</div>
-                                </li> 
+                                <ul class="col-md-6">
+                                    <li>
+                                        {% if post.image %}
+                                            <img src="{{ post.image.url }}">
+                                        {% endif %}
+                                        <a href="{% url 'post_detail' post.pk  %}" class="anons_link">{{ post.title }}</a>
+                                        <span class="text_anons">{{ post.short_content|safe }}</span>
+                                        <div class="min_date">{{ post.date }}</div>
+                                    </li> 
+                                </ul> 
                             {% endfor %}
-                            </ul>
                             <div class="clearfix"></div>
                         </div>
                         <div class="centre"><img src="{% static 'blogs/img/gov.jpg' %}" class="centre_img"></div>
                         <div class="work">
-                            <div class="title"><a href="{% url 'questions' %}">Вопросы и ответы</a></div>
+                            <div class="title"><a href="{% url 'questions' %}">{% trans 'Вопросы и ответы'%}</a></div>
                             <div class="answer_box">
                                 {% for question in questions  %}
-                                    <ul class="col-md-6 nopadeleft"><li>{{ question.detail }}</li></ul>
+                                    <ul class="col-md-6 nopadeleft"><li>{{ question.detail|safe }}</li></ul>
                                 {% endfor %}    
                             </div>
                         </div>
@@ -91,7 +92,7 @@
                     {% for fact in facts %}
                     <div class="photo_box_text bg_brown">
                         <div class="box_title">{{ fact.title }}</div>
-                        <div class="box_text">{{ fact.body }}</div>
+                        <div class="box_text">{{ fact.body|safe }}</div>
                     </div>
                     {% endfor %}
                 </div>

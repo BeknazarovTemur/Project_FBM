@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-13 14:23+0500\n"
-"PO-Revision-Date: 2024-11-13 12:58+0500\n"
+"POT-Creation-Date: 2024-11-14 16:37+0500\n"
+"PO-Revision-Date: 2024-11-14 16:49+0500\n"
 "Last-Translator:   <>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -19,25 +19,157 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Translated-Using: django-rosetta 0.10.1\n"
 
-#: core/settings.py:120
+#: appeal/models.py:14 templates/appeal_form.html:34
+msgid "Appeal"
+msgstr "Apellyatsiya"
+
+#: appeal/models.py:15
+msgid "Appeals"
+msgstr "Apellyatsiyalar"
+
+#: core/settings.py:122
 msgid "English"
 msgstr "English"
 
-#: core/settings.py:121
+#: core/settings.py:123
 msgid "Russian"
 msgstr "Russian"
 
-#: core/settings.py:122
+#: core/settings.py:124
 msgid "Uzbek"
 msgstr "Uzbek"
 
-#: posts/models.py:31 posts/models.py:39
+#: files/models.py:17
+msgid "Document"
+msgstr "Hujjat"
+
+#: files/models.py:18
+msgid "Documents"
+msgstr "Hujjatlar"
+
+#: posts/models.py:15
+msgid "Category"
+msgstr "Kategoriya"
+
+#: posts/models.py:16
+msgid "Categories"
+msgstr "Kategoriyalar"
+
+#: posts/models.py:31
+msgid "Post"
+msgstr "Xabar"
+
+#: posts/models.py:32
+msgid "Posts"
+msgstr "Xabarlar"
+
+#: posts/models.py:41 posts/models.py:53
 msgid "Name"
 msgstr "Nomi"
 
-#: posts/models.py:32 posts/models.py:40
+#: posts/models.py:42 posts/models.py:54
 msgid "URL"
 msgstr "Url"
+
+#: posts/models.py:45
+msgid "Menu"
+msgstr "Menyu"
+
+#: posts/models.py:46
+msgid "Menus"
+msgstr "Menyular"
+
+#: posts/models.py:59
+msgid "MenuItem"
+msgstr "MenyuElement"
+
+#: posts/models.py:60
+msgid "MenuItems"
+msgstr "MenyuElementlar"
+
+#: posts/models.py:75
+msgid "Slider"
+msgstr "Slayder"
+
+#: posts/models.py:76
+msgid "Sliders"
+msgstr "Slayderlar"
+
+#: posts/models.py:86
+msgid "Link"
+msgstr "Sahifa"
+
+#: posts/models.py:87
+msgid "Links"
+msgstr "Sahifalar"
+
+#: posts/models.py:98
+msgid "Fact"
+msgstr "Fakt"
+
+#: posts/models.py:99
+msgid "Facts"
+msgstr "Faktlar"
+
+#: posts/models.py:114
+msgid "Helpline"
+msgstr "Ishonch telefoni"
+
+#: posts/models.py:115
+msgid "Helplines"
+msgstr "Ishonch telefonlari"
+
+#: posts/models.py:130
+msgid "Call"
+msgstr "Qo'ng'iroq"
+
+#: posts/models.py:131
+msgid "Calls"
+msgstr "Qo'ng'iroqlar"
+
+#: question/models.py:13
+msgid "Question"
+msgstr "Savol"
+
+#: question/models.py:14
+msgid "Questions"
+msgstr "Savollar"
+
+#: templates/appeal_form.html:9 templates/call.html:10
+#: templates/download.html:10 templates/home.html:28 templates/news.html:10
+#: templates/post_detail.html:9 templates/question.html:8
+#: templates/question_form.html:9
+msgid "Документы"
+msgstr "Dokumentlar"
+
+#: templates/appeal_form.html:21 templates/home.html:49
+#: templates/post_detail.html:32 templates/question.html:23
+msgid "Отправить обращение"
+msgstr "So'rov yoborish"
+
+#: templates/appeal_form.html:26
+msgid "Full Name"
+msgstr "To'liq ismingiz"
+
+#: templates/appeal_form.html:27
+msgid "Write your full name"
+msgstr "To'liq ismingizni yozing"
+
+#: templates/appeal_form.html:30 templates/question_form.html:33
+msgid "Title"
+msgstr "Sarlavha"
+
+#: templates/appeal_form.html:31
+msgid "Write the title of your question!"
+msgstr "Savolingiz sarlavhasini yozing!"
+
+#: templates/appeal_form.html:35
+msgid "Write your appeal..."
+msgstr "Murojaatingizni yozing..."
+
+#: templates/appeal_form.html:37 templates/question_form.html:40
+msgid "Send"
+msgstr "Jo'natish"
 
 #: templates/base.html:39
 msgid "Поиск по сайту..."
@@ -89,8 +221,8 @@ msgid ""
 "Реализация страновой программы достойного\n"
 "                            труда в Республике Узбекистан"
 msgstr ""
-"O‘zbekiston Respublikasida munosib mehnat bo‘yicha mamlakat dasturini amalga "
-"oshirish"
+"O‘zbekiston Respublikasida munosib mehnat bo‘yicha mamlakat dasturini amalga"
+" oshirish"
 
 #: templates/base.html:95
 msgid ""
@@ -107,8 +239,8 @@ msgid ""
 "Реализация страновой программы достойного\n"
 "                    труда в Республике Узбекистан"
 msgstr ""
-"O‘zbekiston Respublikasida munosib mehnat bo‘yicha mamlakat dasturini amalga "
-"oshirish"
+"O‘zbekiston Respublikasida munosib mehnat bo‘yicha mamlakat dasturini amalga"
+" oshirish"
 
 #: templates/base.html:203
 msgid ""
@@ -126,6 +258,71 @@ msgstr "© 2015 Barcha huquqlar himoyalangan"
 #: templates/base.html:206
 msgid "Разработка"
 msgstr "Rivojlanish"
+
+#: templates/call.html:49
+msgid "ОБРАЩАЙТЕСЬ!"
+msgstr "BIZ BILAN BOG'LANISH!"
+
+#: templates/call.html:68 templates/home.html:36 templates/news.html:40
+#: templates/post_detail.html:19
+msgid "Полезные ссылки"
+msgstr "Foydali havola"
+
+#: templates/call.html:80 templates/home.html:62 templates/news.html:50
+#: templates/post_detail.html:43
+msgid "Новости"
+msgstr "Yangiliklar"
+
+#: templates/call.html:94 templates/home.html:79 templates/news.html:64
+#: templates/post_detail.html:57 templates/question.html:37
+msgid "Вопросы и ответы"
+msgstr "Savol va javoblar"
+
+#: templates/download.html:41
+msgid "Конвенции МОТ"
+msgstr "XMT Konvensiyasi"
+
+#: templates/home.html:49 templates/post_detail.html:32
+#: templates/question.html:23
+msgid "Отправка заявлений, предложений и жалоб  в лектронном виде"
+msgstr "Ariza, taklif va shikoyatlarni elektron shaklda yuborish"
+
+#: templates/home.html:56 templates/post_detail.html:39
+#: templates/question.html:30
+msgid "Задать вопрос"
+msgstr "Savol bering"
+
+#: templates/home.html:56 templates/post_detail.html:39
+msgid "Задайте свой вопрос в сфере законодательства в режиме онлайн"
+msgstr "Yuridik savolingizni onlayn so'rang"
+
+#: templates/question.html:30
+msgid " Задайте свой вопрос в сфере законодательства в режиме онлайн "
+msgstr "Yuridik savolingizni onlayn so'rang"
+
+#: templates/question_form.html:22
+msgid "СОЗДАТЬ ВОПРОС"
+msgstr "SAVOL YARATING"
+
+#: templates/question_form.html:29
+msgid "Phone number"
+msgstr "Telefon nomer"
+
+#: templates/question_form.html:30
+msgid "Enter Your Phone Number"
+msgstr "Telefon nomer"
+
+#: templates/question_form.html:34
+msgid "Write the title of your question! "
+msgstr "Savolingiz sarlavhasini yozing!"
+
+#: templates/question_form.html:37
+msgid "Detail"
+msgstr "Tafsilot"
+
+#: templates/question_form.html:38
+msgid "Enter Details... "
+msgstr "Tafsilotlarni kiriting..."
 
 #~ msgid "Главная"
 #~ msgstr "Bosh sahifa"

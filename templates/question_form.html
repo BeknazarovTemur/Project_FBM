@@ -1,17 +1,17 @@
 {% extends 'base.html' %}
 {% load static %}
-
+{% load i18n %}
 {% block content %}
 
         <div class="center_box">
             <div class="container">
                 <div class="col-md-4 nopade">
-                    <div class="title">Документы</div>
+                    <div class="title">{% trans 'Документы'%}</div>
                     <ul class="list_news">
                       {% for download in documents %}
                         <li>
                             <div class="list_title">{{ download.title }}</div>
-                            <a href="#">{{ download.body }}</a>
+                            <a href="#">{{ download.body|safe }}</a>
                         </li>
                       {% endfor %}
                     </div>
@@ -19,25 +19,25 @@
                         <div class="anons_box">
                             <div class="clearfix"></div>
                             <div class="anons">
-                                <div class="title">СОЗДАТЬ ВОПРОС</div>
+                                <div class="title">{% trans 'СОЗДАТЬ ВОПРОС'%}</div>
                                 <ul class="col-md-6">
                                 
                                     
                                     <form method="POST" action="">
                                         {% csrf_token %}
                                         <div class="form-group">
-                                          <label for="inputPhone">Phone number</label>
-                                          <input type="text" name="phone_number" class="form-control" id="inputPhone" placeholder="Enter Your Phone Number">
+                                          <label for="inputPhone">{% trans 'Phone number'%}</label>
+                                          <input type="text" name="phone_number" class="form-control" id="inputPhone" placeholder="{% trans 'Enter Your Phone Number'%}">
                                         </div>
                                         <div class="form-group">
-                                          <label for="inputTitle">Title</label>
-                                          <input type="text" name="title" class="form-control" id="inputTitle" placeholder="Write the title of your question!">
+                                          <label for="inputTitle">{% trans 'Title'%}</label>
+                                          <input type="text" name="title" class="form-control" id="inputTitle" placeholder="{% trans 'Write the title of your question! '%}">
                                         </div>
                                         <div class="form-group">
-                                          <label for="inputDetail">Detail</label>
-                                          <textarea id="inputDetail" name="detail" rows="4" class="form-control" maxlength="200" placeholder="Enter Details..."></textarea>
+                                          <label for="inputDetail">{% trans 'Detail'%}</label>
+                                          <textarea id="inputDetail" name="detail" rows="4" class="form-control" maxlength="200" placeholder="{% trans 'Enter Details... '%}"></textarea>
                                         </div>
-                                        <button type="submit" class="btn btn-primary">Send</button>
+                                        <button type="submit" class="btn btn-primary">{% trans 'Send'%}</button>
                                       </form>
                                       
 

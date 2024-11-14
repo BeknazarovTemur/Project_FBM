@@ -285,26 +285,27 @@ a{
     background-color: #2a489f;
     color: #fff;
 }
-.lang li a {
-    text-decoration: none;
-    color: inherit;
-    cursor: pointer;
-    padding: 5px 10px;
-    border: none;
-    background: none;
+.lang li a{
+    border-radius: 50%;
+    font-family: "UbuntuCondensedRegular";
+    width: 33px;
+    height: 33px;
+    color: #2a489f;
+    background-color: transparent;
     font-size: 16px;
+    display: block;
+    padding: 5px 5px;
+    text-align: center;
 }
-
-.lang li.active a {
-    font-weight: bold;
-    text-decoration: underline; /* optional for active styling */
+.lang li{
+    list-style: none;
+    display: inline-block;
 }
 .lang{
     position: absolute;
     top: 15px;
     margin-left: 35px;
     z-index: 1;
-    list-style-type: none;
 }
 
 .form_search{

@@ -39,16 +39,24 @@
                 <div class="col-md-8 column nopaderight">
                     <div class="download_box">
                         <div class="title">{% trans 'Конвенции МОТ'%}</div>
-                            <ul class="download_list">
-                                {% for download in object_list %}
-                                    <li>
-                                        <img src="{% static 'blogs/img/paper2.png' %}" class="bg_list">
-                                        <span>{{ download.body|safe }}</span> 
-                                        <a href="{% url 'view_file' download.id %}" class="view_list"><img src="{% static 'blogs/img/eye2.png' %}"></a>
-                                        <a href="{% url 'download_file' download.id %}" class="view_list downloader"><img src="{% static 'blogs/img/download.png' %}"></a>
-                                    </li>
-                                {% endfor %}
-                            </ul>
+                        <ul class="download_list">
+                            {% for download in object_list %}
+                                <li>
+                                    <img src="{% static 'blogs/img/paper2.png' %}" class="bg_list">
+                                    <span>{{ download.body|safe }}</span> 
+                                    
+                                    <!-- Open PDF in Google Docs Viewer -->
+                                    <a href="https://docs.google.com/gview?url={{ download.body|safe }}&embedded=true" class="view_list" target="_blank">
+                                        <img src="{% static 'blogs/img/eye2.png' %}" alt="View PDF">
+                                    </a>
+                                    
+                                    <!-- Link to download the file -->
+                                    <a href="{% url 'download_file' download.id %}" class="view_list downloader">
+                                        <img src="{% static 'blogs/img/download.png' %}" alt="Download PDF">
+                                    </a>
+                                </li>
+                            {% endfor %}
+                        </ul>
                         <div class="clearfix"></div>
                     </div>
                 </div>

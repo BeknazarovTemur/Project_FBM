@@ -15,8 +15,9 @@ def create_appeal(request):
         Appeal.objects.create(full_name=full_name, title=title, message=message)
 
         return redirect('home')
+    
     menu_list = Menu.objects.all()
-    document_list = Document.objects.all()
+    document_list = Document.objects.all().order_by('-uploaded_at')[:4]
     slider_items = Slider.objects.all()
     link_items = Link.objects.all()
     context = {

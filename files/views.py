@@ -18,6 +18,8 @@ class DocumentListView(ListView):
         context['helplines'] = Helpline.objects.all()
         context['menus'] = Menu.objects.prefetch_related('items').all()
         return context
+    def get_queryset(self):
+        return Document.objects.all().order_by('-uploaded_at')[:4]
 
 def download_file(request, document_id):
     document = get_object_or_404(Document, id=document_id)

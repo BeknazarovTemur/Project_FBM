@@ -60,13 +60,11 @@
 
                             </ul>
                             <div class="clearfix"></div>                        
-                        <div class="work">
+                            <div class="work">
                             <div class="title"><a href="#">{% trans 'Вопросы и ответы'%}</a></div>
                             <div class="answer_box">
                             {% for question in questions  %}
-                                <ul class="col-md-6 nopadeleft">
-                                    <li>{{ question.detail|safe }}</li>
-                                </ul>
+                                <ul class="col-md-6 nopadeleft"><li>{{ question.detail|safe }}</li></ul>
                             {% endfor %}  
                             </div>
                         </div>

@@ -37,9 +37,7 @@
                             <div class="title"><a href="{% url 'questions' %}">{% trans 'Вопросы и ответы'%}</a></div>
                             <div class="answer_box">
                             {% for question in object_list  %}
-                                <ul class="col-md-6 nopadeleft">
-                                    <li>{{ question.detail|safe }}</li>
-                                </ul>
+                                <ul class="col-md-6 nopadeleft"><li>{{ question.detail|safe }}</li></ul>
                             {% endfor %}  
                             </div>
                         </div>

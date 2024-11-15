@@ -770,9 +770,7 @@ input{
     margin-top: 10px;
     background-color: #ededed;
 }
-.anons_box ul{
-    padding-top: 20px;
-}
+
 .anons_box li {
     list-style: none;
     margin-bottom: 15px;
@@ -827,6 +825,7 @@ input{
 .answer_box{
     overflow: hidden;
     height: 275px;
+    padding: 20px 0;
 }
 .photo_box {
     /*margin-top: -50px;*/

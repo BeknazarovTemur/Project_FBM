@@ -12,8 +12,8 @@ class PostListView(ListView):
     template_name = 'home.html'
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['documents'] = Document.objects.all() 
-        context['questions'] = Question.objects.all()
+        context['documents'] = Document.objects.all().order_by('-uploaded_at')[:4]
+        context['questions'] = Question.objects.all().order_by('-add_time')[:6]
         context['sliders'] = Slider.objects.all()
         context['links'] = Link.objects.all()
         context['facts'] = Fact.objects.all()
@@ -27,14 +27,13 @@ class PostDetailView(DetailView):
     context_object_name = 'post'
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['documents'] = Document.objects.all()
-        context['questions'] = Question.objects.all()
+        context['documents'] = Document.objects.all().order_by('-uploaded_at')[:4]  
+        context['questions'] = Question.objects.all().order_by('-add_time')[:6]
         context['sliders'] = Slider.objects.all()
         context['links'] = Link.objects.all()
         context['facts'] = Fact.objects.all()
         context['helplines'] = Helpline.objects.all()
         context['menus'] = Menu.objects.prefetch_related('items').all()
-
         return context
 
 class NewsListView(ListView):
@@ -42,8 +41,8 @@ class NewsListView(ListView):
     template_name = 'news.html'
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['documents'] = Document.objects.all()
-        context['questions'] = Question.objects.all()
+        context['documents'] = Document.objects.all().order_by('-uploaded_at')[:4]
+        context['questions'] = Question.objects.all().order_by('-add_time')[:6]
         context['sliders'] = Slider.objects.all()
         context['links'] = Link.objects.all()
         context['facts'] = Fact.objects.all()
@@ -56,8 +55,8 @@ class CallListView(ListView):
     template_name = 'call.html'
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['documents'] = Document.objects.all()
-        context['questions'] = Question.objects.all()
+        context['documents'] = Document.objects.all().order_by('-uploaded_at')[:4]
+        context['questions'] = Question.objects.all().order_by('-add_time')[:6]
         context['sliders'] = Slider.objects.all()
         context['links'] = Link.objects.all()
         context['facts'] = Fact.objects.all()

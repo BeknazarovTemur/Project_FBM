@@ -3,7 +3,8 @@ from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView
 from files.models import Document
 from question.models import Question
-from .models import Fact, Helpline, Link, Call, Post, Slider, Menu
+from .models import Fact, Helpline, Link, Call, Post, Slider, Menu, MenuItem
+from django.db.models import Prefetch
 
 # Create your views here.
 
@@ -18,7 +19,10 @@ class PostListView(ListView):
         context['links'] = Link.objects.all()
         context['facts'] = Fact.objects.all()
         context['helplines'] = Helpline.objects.all()
-        context['menus'] = Menu.objects.prefetch_related('items').all()
+        context['menus'] = Menu.objects.prefetch_related(Prefetch(
+            'items',
+            MenuItem.objects.filter(is_active=True)
+        )).all()
         return context
 
 class PostDetailView(DetailView):
@@ -33,7 +37,10 @@ class PostDetailView(DetailView):
         context['links'] = Link.objects.all()
         context['facts'] = Fact.objects.all()
         context['helplines'] = Helpline.objects.all()
-        context['menus'] = Menu.objects.prefetch_related('items').all()
+        context['menus'] = Menu.objects.prefetch_related(Prefetch(
+            'items',
+            MenuItem.objects.filter(is_active=True)
+        )).all()
         return context
 
 class NewsListView(ListView):

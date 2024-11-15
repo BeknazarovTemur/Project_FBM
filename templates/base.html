@@ -183,6 +183,44 @@
                 </div>
             </div>
         </div>
+        <div class="center_box">
+            <div class="container">
+                <div class="col-md-4 nopade">
+                    <div class="call_box">
+                        {% for helpline in helplines %}
+                            <div class="centre attention attention_border_bottom">{{ helpline.head }}</div>
+                            <div class="caller">
+                                <div class="centre">
+                                    <div class="caller_text">{{ helpline.title }}</div>
+                                </div>
+                                <div class="text">
+                                    <span>{{ helpline.federation_number }}</span>
+                                    {{ helpline.federation_title }}
+                                </div>
+                                <div class="text text_right">
+                                    <span>{{ helpline.state_number }}</span>
+                                    {{ helpline.state_title }}
+                                </div>
+                            </div>
+                            <div class="centre attention attention_border_top">{{ helpline.tag }}</div>
+                        {% endfor %}
+                    </div>
+                    <div class="title">{% trans 'Документы'%}</div>
+                    <ul class="list_news">
+                        {% for download in documents %}
+                            <li><div class="list_title">{{ download.title }}</div><a href="{{ download.file.url }}" target="_blank">{{ download.body|safe }}</a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                    <div class="brown_list bg_brown">
+                        <div class="title">{% trans 'Полезные ссылки'%}</div>
+                        <ul>
+                        {% for link in links %}
+                            <li>{% if link.image %}<img src="{{ link.image.url }}">{% endif %}<a href="https://www.ilo.org/ru">{{ link.title }}</a></li>
+                        {% endfor %}
+                        </ul>
+                    </div>
+                </div>
 
 
 {% block content %}
@@ -190,26 +228,30 @@
 {% endblock content %}
 
 
-<div class="footer">
-    <div class="container relative">
-        <div class="map_uz">
-            <div class="centre">
-                <a class="logo_name" href="{% url 'home' %}">www.fbm.uz</a>
-                <div class="logo_text">{% blocktrans %}Реализация страновой программы достойного
-                    труда в Республике Узбекистан{% endblocktrans %}</div>
-            </div>
-        </div>
-        <div class="footer_text">
-            <div class="footer_name">{% blocktrans %}Сайт создан Министерством труда и социальной защиты населения Рecпублики Узбекистан совместно с Порталом Федерации Профсоюзов Узбекистана{% endblocktrans %}</div>
-            <div>{% blocktrans %}© 2015 Все права защищены{% endblocktrans %}</div>
-            <p>
-                {% blocktrans %}Разработка{% endblocktrans %}
-                <a href="https://uzinfocom.uz/"><img src="{% static 'blogs/img/uzinfocom.png' %}"></a>
-            </p>
+<div class="clearfix"></div>
         </div>
     </div>
-</div>
-</div>
+    <div class="clearfix"></div>
+    <div class="footer">
+        <div class="container relative">
+            <div class="map_uz">
+                <div class="centre">
+                    <a class="logo_name" href="{% url 'home' %}">www.fbm.uz</a>
+                    <div class="logo_text">{% blocktrans %}Реализация страновой программы достойного
+                        труда в Республике Узбекистан{% endblocktrans %}</div>
+                </div>
+            </div>
+            <div class="footer_text">
+                <div class="footer_name">{% blocktrans %}Сайт создан Министерством труда и социальной защиты населения Рecпублики Узбекистан совместно с Порталом Федерации Профсоюзов Узбекистана{% endblocktrans %}</div>
+                <div>{% blocktrans %}© 2015 Все права защищены{% endblocktrans %}</div>
+                <p>
+                    {% blocktrans %}Разработка{% endblocktrans %}
+                    <a href="https://uzinfocom.uz/"><img src="{% static 'blogs/img/uzinfocom.png' %}"></a>
+                </p>
+            </div>
+        </div>
+    </div>
+    </div>
 
 <!--[if lt IE 9]>
 <script src="js/html5shiv.js"></script>

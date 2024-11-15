@@ -3,45 +3,45 @@
 {% load i18n %}
 {% block content %}
 
-        <div class="center_box">
-            <div class="container">
-                <div class="col-md-4 nopade">
-                    <div class="title">{% trans 'Документы'%}</div>
-                    <ul class="list_news">
-                        {% for download in documents %}
-                            <li><div class="list_title">{{ download.title }}</div><a href="#">{{ download.body|safe }}</a>
-                            </li>
-                        {% endfor %}
-                    </ul>
+    <div class="col-md-8 column nopaderight">
+        <div class="anons_box">
+            <div class="col-md-6 nopade relative">
+                <a href="{% url 'appeal_form' %}" class="green_box">
+                    <div class="table_link">
+                        <span>{% trans 'Отправить обращение'%}</span>{% blocktrans %}Отправка заявлений, предложений и жалоб  в лектронном виде{% endblocktrans %}
                     </div>
-                    <div class="col-md-8 column nopaderight">
-                        <div class="anons_box">
-                            <div class="clearfix"></div>
-                            <div class="anons">
-                                <div class="title">{% trans 'Отправить обращение'%}</div>
-                                <ul class="col-md-6">
-                                    <form method="POST" action="">
-                                        {% csrf_token %}
-                                        <div class="form-group">
-                                            <label for="inputAuthor">{% trans 'Full Name'%}</label>
-                                            <input type="text" name="full_name" class="form-control" id="inputFullName" placeholder="{% trans 'Write your full name'%}">
-                                          </div>
-                                        <div class="form-group">
-                                          <label for="inputTitle">{% trans 'Title'%}</label>
-                                          <input type="text" name="title" class="form-control" id="inputTitle" placeholder="{% trans 'Write the title of your question!'%}">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="inputMessage">{% trans 'Appeal'%}</label>
-                                            <textarea id="inputMessage" name="message" rows="4" class="form-control" maxlength="200" placeholder="{% trans 'Write your appeal...'%}"></textarea>
-                                        </div>
-                                        <button type="submit" class="btn btn-primary">{% trans 'Send'%}</button>
-                                    </form>
-                                </ul>
-                            <div class="clearfix"></div>
-                        </div>
-                    </ul>
-                </div>
+                </a>
             </div>
+            <div class="col-md-6 nopade relative">
+                <a href="{% url 'question_form' %}" class="blue_box">
+                    <div class="table_link">
+                        <span>{% trans 'Задать вопрос'%}</span>{% blocktrans %}Задайте свой вопрос в сфере законодательства в режиме онлайн{% endblocktrans %}
+                    </div>
+                </a>
+            </div>
+            <div class="clearfix"></div>
+            <div class="anons">
+                <div class="title">{% trans 'Отправить обращение'%}</div>
+                <ul class="col-md-6">
+                    <form method="POST" action="">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="inputAuthor">{% trans 'Full Name'%}</label>
+                            <input type="text" name="full_name" class="form-control" id="inputFullName" placeholder="{% trans 'Write your full name'%}">
+                            </div>
+                        <div class="form-group">
+                            <label for="inputTitle">{% trans 'Title'%}</label>
+                            <input type="text" name="title" class="form-control" id="inputTitle" placeholder="{% trans 'Write the title of your question!'%}">
+                        </div>
+                        <div class="form-group">
+                            <label for="inputMessage">{% trans 'Appeal'%}</label>
+                            <textarea id="inputMessage" name="message" rows="4" class="form-control" maxlength="200" placeholder="{% trans 'Write your appeal...'%}"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">{% trans 'Send'%}</button>
+                    </form>
+                </ul>
+            <div class="clearfix"></div>
         </div>
+    </ul>
         
 {% endblock content %}

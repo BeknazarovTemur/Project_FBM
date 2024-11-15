@@ -4,61 +4,40 @@
 
 {% block content %}
 
-        <div class="center_box">
-            <div class="container">
-                <div class="col-md-4 nopade">
-                    <div class="title">{% trans 'Документы'%}</div>
-                    <ul class="list_news">
-                        {% for download in object_list %}
-                            <li>
-                                <div class="list_title">{{ download.title|safe }}</div>
-                                <a href="{{ download.file.url }}" target="_blank">{{ download.body|safe }}</a>
-                            </li>
-                        {% endfor %}
-                    </ul>
-                    <div class="call_box">
-                        {% for helpline in helplines %}
-                            <div class="centre attention attention_border_bottom">{{ helpline.head }}</div>
-                            <div class="caller">
-                                <div class="centre">
-                                    <div class="caller_text">{{ helpline.title }}</div>
-                                </div>
-                                <div class="text">
-                                    <span>{{ helpline.federation_number }}</span>
-                                    {{ helpline.federation_title }}
-                                </div>
-                                <div class="text text_right">
-                                    <span>{{ helpline.state_number }}</span>
-                                    {{ helpline.state_title }}
-                                </div>
-                            </div>
-                            <div class="centre attention attention_border_top">{{ helpline.tag }}</div>
-                        {% endfor %}
-                    </div>
+        
+    <div class="col-md-8 column nopaderight">
+        <div class="col-md-6 nopade relative">
+            <a href="{% url 'appeal_form' %}" class="green_box">
+                <div class="table_link">
+                    <span>{% trans 'Отправить обращение'%}</span>{% blocktrans %}Отправка заявлений, предложений и жалоб  в лектронном виде{% endblocktrans %}
                 </div>
-                <div class="col-md-8 column nopaderight">
-                    <div class="download_box">
-                        <div class="title">{% trans 'Конвенции МОТ'%}</div>
-                        <ul class="download_list">
-                            {% for download in documents %}
-                                <li>
-                                    <img src="{% static 'blogs/img/paper2.png' %}" class="bg_list">
-                                    <span>{{ download.body|safe }}</span>
-                                    <a href="{{ download.file.url }}" class="view_list" target="_blank">
-                                        <img src="{% static 'blogs/img/eye2.png' %}" alt="View PDF">
-                                    </a>
-                                    <a href="{% url 'download_file' download.id %}" class="view_list downloader">
-                                        <img src="{% static 'blogs/img/download.png' %}" alt="Download PDF">
-                                    </a>
-                                </li>
-                            {% endfor %}
-                        </ul>
-                        <div class="clearfix"></div>
-                    </div>
-                </div>
-                <div class="clearfix"></div>
-            </div>
+            </a>
         </div>
-        <div class="clearfix"></div>
+        <div class="col-md-6 nopade relative">
+            <a href="{% url 'question_form' %}" class="blue_box">
+                <div class="table_link">
+                    <span>{% trans 'Задать вопрос'%}</span>{% blocktrans %}Задайте свой вопрос в сфере законодательства в режиме онлайн{% endblocktrans %}
+                </div>
+            </a>
+        </div>
+        <div class="download_box">
+            <div class="title">{% trans 'Конвенции МОТ'%}</div>
+            <ul class="download_list">
+                {% for download in documents %}
+                    <li>
+                        <img src="{% static 'blogs/img/paper2.png' %}" class="bg_list">
+                        <span>{{ download.body|safe }}</span>
+                        <a href="{{ download.file.url }}" class="view_list" target="_blank">
+                            <img src="{% static 'blogs/img/eye2.png' %}" alt="View PDF">
+                        </a>
+                        <a href="{% url 'download_file' download.id %}" class="view_list downloader">
+                            <img src="{% static 'blogs/img/download.png' %}" alt="Download PDF">
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+            <div class="clearfix"></div>
+        </div>
+    </div>
         
 {% endblock content %}

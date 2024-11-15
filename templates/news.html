@@ -3,50 +3,23 @@
 {% load i18n %}
 {% block content %}
 
-        <div class="center_box">
-            <div class="container">
-                <div class="col-md-4 nopade">
-
-                    <div class="title">{% trans 'Документы'%}</div>
-                    <ul class="list_news">
-                        {% for download in documents %}
-                            <li>
-                                <div class="list_title">{{ download.title }}</div>
-                                <a href="#">{{ download.body|safe }}</a>
-                            </li>
-                        {% endfor %}
-                    </ul>
-
-                    <div class="call_box">
-                        {% for helpline in helplines %}
-                        <div class="centre attention attention_border_bottom">{{ helpline.head }}</div>
-                        <div class="caller">
-                            <div class="centre">
-                                <div class="caller_text">{{ helpline.title }}</div>
-                            </div>
-                            <div class="text">
-                                <span>{{ helpline.federation_number }}</span>
-                                {{ helpline.federation_title }}
-                            </div>
-                            <div class="text text_right">
-                                <span>{{ helpline.state_number }}</span>
-                                {{ helpline.state_title }}
-                            </div>
-                        </div>
-                        <div class="centre attention attention_border_top">{{ helpline.tag }}</div>
-                    </div>
-                    {% endfor %}
-                    <div class="brown_list bg_brown">
-                        <div class="title">{% trans 'Полезные ссылки'%}</div>
-                        <ul>
-                        {% for link in links %}
-                            <li>{% if link.image %}<img src="{{ link.image.url }}">{% endif %}<a href="https://www.ilo.org/ru">{{ link.title }}</a></li>
-                        {% endfor %}
-                        </ul>
-                    </div>
-                </div>
+        
                 <div class="col-md-8 column nopaderight">
                     <div class="anons_box">
+                        <div class="col-md-6 nopade relative">
+                            <a href="{% url 'appeal_form' %}" class="green_box">
+                                <div class="table_link">
+                                    <span>{% trans 'Отправить обращение'%}</span>{% blocktrans %}Отправка заявлений, предложений и жалоб  в лектронном виде{% endblocktrans %}
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-md-6 nopade relative">
+                            <a href="{% url 'question_form' %}" class="blue_box">
+                                <div class="table_link">
+                                    <span>{% trans 'Задать вопрос'%}</span>{% blocktrans %}Задайте свой вопрос в сфере законодательства в режиме онлайн{% endblocktrans %}
+                                </div>
+                            </a>
+                        </div>
                         <div class="title">{% trans 'Новости'%}</div>
                             <ul class="col-md-12">
                                 
@@ -69,10 +42,5 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="clearfix"></div>
-            </div>
-        </div>
-        <div class="clearfix"></div>
         
 {% endblock content %}

@@ -2,7 +2,7 @@ from django.conf import settings
 from django.db import models
 from ckeditor.fields import RichTextField
 from django.utils.translation import gettext_lazy as _
-
+from django.urls import reverse
 
 
 # Create your models here.
@@ -12,6 +12,8 @@ class Document(models.Model):
     body = RichTextField(default='', verbose_name=("body"))
     file = models.FileField(upload_to='documents/')
     uploaded_at = models.DateTimeField(auto_now_add=True)
+    is_active = models.BooleanField(default=True, verbose_name="Is Active")
+
 
     class Meta:
         verbose_name = _("Document")
@@ -19,3 +21,5 @@ class Document(models.Model):
 
     def __str__(self):
         return self.title
+
+    

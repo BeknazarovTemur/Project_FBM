@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
 from ckeditor.fields import RichTextField
+from django.utils import timezone
 
 # Create your models here.
 
@@ -25,7 +26,9 @@ class Post(models.Model):
     short_content = RichTextField(max_length=300, blank=True, verbose_name=("short_content"))
     content = RichTextField(verbose_name="content")
     image = models.ImageField(upload_to='images/', blank=True)
-    date = models.DateTimeField(auto_now_add=True)
+    created_at = models.DateTimeField(null=True, blank=True, auto_now_add=True)
+    is_active = models.BooleanField(default=True, verbose_name="Is Active")
+    date = models.DateTimeField(null=True, blank=True,default=timezone.now)
 
     class Meta:
         verbose_name = _("Post")
@@ -40,6 +43,8 @@ class Post(models.Model):
 class Menu(models.Model):
     name = models.CharField(max_length=100, verbose_name=_("Name"))
     url = models.URLField(blank=True, null=True, verbose_name=_("URL"))
+    is_active = models.BooleanField(default=True, verbose_name="Is Active")
+
 
     class Meta:
         verbose_name = _("Menu")
@@ -71,6 +76,7 @@ class Slider(models.Model):
     title = models.CharField(max_length=100, verbose_name=("title"))
     body = RichTextField(verbose_name=("body"))
     created_at = models.DateTimeField(auto_now_add=True)
+    is_active = models.BooleanField(default=True, verbose_name="Is Active")
 
     class Meta:
         verbose_name = _("Slider")
@@ -82,6 +88,7 @@ class Slider(models.Model):
 class Link(models.Model):
     image = models.ImageField(upload_to='images/', blank=True)
     title = models.CharField(max_length=100, verbose_name=("title"))
+    is_active = models.BooleanField(default=True, verbose_name="Is Active")
 
     class Meta:
         verbose_name = _("Link")
@@ -94,6 +101,7 @@ class Fact(models.Model):
     image = models.ImageField(upload_to='images/', blank=True)
     title = models.CharField(max_length=100, verbose_name="title")
     body = RichTextField(verbose_name=("body"))
+    is_active = models.BooleanField(default=True, verbose_name="Is Active")
 
     class Meta:
         verbose_name = _("Fact")
@@ -110,6 +118,7 @@ class Helpline(models.Model):
     state_title = models.CharField(max_length=200, default='', verbose_name=("state_title"))
     state_number = models.CharField(max_length=100, verbose_name=("state_number"))
     tag = models.CharField(max_length=200, default='', verbose_name=("tag"))
+    is_active = models.BooleanField(default=True, verbose_name="Is Active")
 
     class Meta:
         verbose_name = _("Helpline")
@@ -126,6 +135,7 @@ class Call(models.Model):
     federation_number = models.CharField(max_length=100, verbose_name=("federation_number"))
     state_content = models.CharField(max_length=200, verbose_name=("state_content"))
     state_number = models.CharField(max_length=100, verbose_name=("state_number"))
+    is_active = models.BooleanField(default=True, verbose_name="Is Active")
 
     class Meta:
         verbose_name = _("Call")

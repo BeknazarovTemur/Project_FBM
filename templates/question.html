@@ -36,9 +36,13 @@
                         <div class="work">
                             <div class="title"><a href="{% url 'questions' %}">{% trans 'Вопросы и ответы'%}</a></div>
                             <div class="answer_box">
-                            {% for question in object_list  %}
-                                <ul class="col-md-6 nopadeleft"><li>{{ question.detail|safe }}</li></ul>
-                            {% endfor %}  
+                                {% for question_answer in question_answers  %}
+                                    <ul class="col-md-6 nopadeleft">
+                                        <li>
+                                            <a href="{% url 'question_answer_detail' pk=question_answer.pk %}" class="anons_link">{{ question_answer.question_body|safe }}</a>
+                                        </li>
+                                    </ul>
+                                {% endfor %}    
                             </div>
                         </div>
                     </div>

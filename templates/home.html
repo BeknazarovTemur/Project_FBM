@@ -36,12 +36,20 @@
                 {% endfor %}
                 <div class="clearfix"></div>
             </div>
-            <div class="centre"><img src="{% static 'blogs/img/gov.jpg' %}" class="centre_img"></div>
+            <div class="centre">
+                <a href="https://my.gov.uz/oz" target="_blank">
+                    <img src="{% static 'blogs/img/gov.jpg' %}" class="centre_img" alt="Government Logo">
+                </a>
+            </div>
             <div class="work">
-                <div class="title"><a href="{% url 'questions' %}">{% trans 'Вопросы и ответы'%}</a></div>
+                <div class="title"><a>{% trans 'Вопросы и ответы'%}</a></div>
                 <div class="answer_box">
-                    {% for question in questions  %}
-                        <ul class="col-md-6 nopadeleft"><li>{{ question.detail|safe }}</li></ul>
+                    {% for question_answer in question_answers  %}
+                        <ul class="col-md-6 nopadeleft">
+                            <li>
+                                <a href="{% url 'question_answer_detail' pk=question_answer.pk %}" class="anons_link">{{ question_answer.question_body|safe }}</a>
+                            </li>
+                        </ul>
                     {% endfor %}    
                 </div>
             </div>

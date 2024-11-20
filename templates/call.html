@@ -5,36 +5,6 @@
 {% block content %}
     <div class="col-md-8 column nopaderight">
 
-        <div class="call_center">
-            {% for call in calls %}
-            <div class="red_blog">
-                <div class="centre red_name">{{ call.head }}</div>
-                <ul>
-                    <li>{{ call.short_content|safe }}</li>
-                </ul>
-            </div>
-            <div class="center_triangle">
-                <div class="triangle_left"></div>
-                <div class="triangle_right"></div>
-                <div class="centre red_name centre_text">{% trans 'ОБРАЩАЙТЕСЬ!'%}</div>
-            </div>
-            <div class="blue_blog">
-                <div class="centre blue_name">{{ call.title }}</div>
-                <div class="text">
-                    {{ call.federation_content }}
-                    <span>{{ call.federation_number }}</span>
-        
-                </div>
-                <div class="text text_right">
-                    {{ call.state_content }}
-                    <span>{{ call.state_number }}</span>
-                </div>
-                <div class="clearfix"></div>
-            </div>
-            {% endfor %}
-        </div>
-
-
         <div class="anons_box">
             <div class="col-md-6 nopade relative">
                 <a href="{% url 'appeal_form' %}" class="green_box">
@@ -63,15 +33,19 @@
                 <div class="clearfix"></div>
             
 
-            <div class="work work_in">
-                <div class="title"><a href="#">{% trans 'Вопросы и ответы'%}</a></div>
-                <div class="answer_box">
-                {% for question in questions  %}
-                    <ul class="col-md-6 nopadeleft"><li>{{ question.detail|safe }}</li></ul>
-                {% endfor %}
-                    <div class="clearfix"></div>
+                <div class="work work_in">
+                    <div class="title"><a>{% trans 'Вопросы и ответы'%}</a></div>
+                    <div class="answer_box">
+                        {% for question_answer in question_answers  %}
+                            <ul class="col-md-6 nopadeleft">
+                                <li>
+                                    <a href="{% url 'question_answer_detail' pk=question_answer.pk %}" class="anons_link">{{ question_answer.question_body|safe }}</a>
+                                </li>
+                            </ul>
+                        {% endfor %}  
+                        <div class="clearfix"></div>
+                    </div>
                 </div>
-            </div>
         </div>
     </div>
         

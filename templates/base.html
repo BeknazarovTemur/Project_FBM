@@ -205,6 +205,34 @@
                             <div class="centre attention attention_border_top">{{ helpline.tag }}</div>
                         {% endfor %}
                     </div>
+                    <div class="call_center">
+                        {% for call in calls %}
+                        <div class="red_blog">
+                            <div class="centre red_name">{{ call.head }}</div>
+                            <ul>
+                                <li>{{ call.short_content|safe }}</li>
+                            </ul>
+                        </div>
+                        <div class="center_triangle">
+                            <div class="triangle_left"></div>
+                            <div class="triangle_right"></div>
+                            <div class="centre red_name centre_text">{% trans 'ОБРАЩАЙТЕСЬ!'%}</div>
+                        </div>
+                        <div class="blue_blog">
+                            <div class="centre blue_name">{{ call.title }}</div>
+                            <div class="text">
+                                {{ call.federation_content }}
+                                <span>{{ call.federation_number }}</span>
+                    
+                            </div>
+                            <div class="text text_right">
+                                {{ call.state_content }}
+                                <span>{{ call.state_number }}</span>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        {% endfor %}
+                    </div>
                     <div class="title">{% trans 'Документы'%}</div>
                     <ul class="list_news">
                         {% for download in documents %}
@@ -221,6 +249,7 @@
                         </ul>
                     </div>
                 </div>
+                
 
 
 {% block content %}

@@ -1,8 +1,9 @@
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 from files.models import Document
-from posts.models import Fact, Link, Menu, Slider
-from .models import Question
+from posts.models import Link, Menu, MenuItem, Slider
+from .models import Question, QuestionAnswer
 from django.shortcuts import render, redirect
+from django.db.models import Prefetch
 
 # Create your views here.
 class QuestionListView(ListView):
@@ -10,11 +11,13 @@ class QuestionListView(ListView):
     template_name = 'question.html'
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['documents'] = Document.objects.all().order_by('-uploaded_at')[:4]
-        context['sliders'] = Slider.objects.all()
-        context['links'] = Link.objects.all()
-        context['facts'] = Fact.objects.all()
-        context['menus'] = Menu.objects.prefetch_related('items').all()
+        context['documents'] = Document.objects.filter(is_active=True).all().order_by('-uploaded_at')[:4]
+        context['sliders'] = Slider.objects.filter(is_active=True).all()
+        context['links'] = Link.objects.filter(is_active=True).all()
+        context['menus'] = Menu.objects.filter(is_active=True).prefetch_related(Prefetch(
+            'items',
+            MenuItem.objects.filter(is_active=True)
+        )).all()
         return context
     def get_queryset(self):
         return Question.objects.all().order_by('-add_time')[:6]
@@ -41,3 +44,32 @@ def create_question(request):
         'links': link_items,
     }
     return render(request, 'question_form.html', context)
+
+class QuestionAnswerListView(ListView):
+    model = QuestionAnswer
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['documents'] = Document.objects.filter(is_active=True).all().order_by('-uploaded_at')[:4]
+        context['sliders'] = Slider.objects.filter(is_active=True).all()
+        context['links'] = Link.objects.filter(is_active=True).all()
+        context['menus'] = Menu.objects.filter(is_active=True).prefetch_related(Prefetch(
+            'items',
+            MenuItem.objects.filter(is_active=True)
+        )).all()
+        context['question_answers'] = QuestionAnswer.objects.filter(is_active=True).order_by('-add_time')[:6]
+        return context
+
+class QuestionAnswerDetailView(DetailView):
+    model = QuestionAnswer
+    template_name = 'answer_detail.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['documents'] = Document.objects.filter(is_active=True).all().order_by('-uploaded_at')[:4]
+        context['sliders'] = Slider.objects.filter(is_active=True).all()
+        context['links'] = Link.objects.filter(is_active=True).all()
+        context['menus'] = Menu.objects.filter(is_active=True).prefetch_related(Prefetch(
+            'items',
+            MenuItem.objects.filter(is_active=True)
+        )).all()
+        return context

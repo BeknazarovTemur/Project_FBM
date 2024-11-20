@@ -38,10 +38,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # external apps
+    'rest_framework',
+    'django_filters',
     'rosetta',
     'modeltranslation',
     'ckeditor',
     'ckeditor_uploader',
+    # internal apps
     'posts',
     'question',
     'appeal',

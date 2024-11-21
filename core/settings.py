@@ -41,15 +41,16 @@ INSTALLED_APPS = [
     # external apps
     'rest_framework',
     'django_filters',
-    'rosetta',
+    # 'rosetta',
     'modeltranslation',
     'ckeditor',
     'ckeditor_uploader',
     # internal apps
-    'posts',
-    'question',
-    'appeal',
-    'files',
+    'posts.apps.PostsConfig',
+    'question.apps.QuestionConfig',
+    'appeal.apps.AppealConfig',
+    'files.apps.FilesConfig',
+    'languages.apps.LanguagesConfig',
 ]
 
 MIDDLEWARE = [
@@ -119,15 +120,6 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-USE_I18N = True
-USE_L10N = True
-LOCALE_PATHS = (os.path.join(BASE_DIR, "locale"),)
-LANGUAGES = [
-    ('en', _('English')),
-    ('ru', _('Russian')),
-    ('uz', _('Uzbek')),
-]
-
 LOCALE_PATHS = (os.path.join(BASE_DIR, "locale"),)
 
 TIME_ZONE = 'Asia/Tashkent'
@@ -135,6 +127,9 @@ TIME_ZONE = 'Asia/Tashkent'
 USE_I18N = True
 
 USE_TZ = True
+
+DEFAULT_LANG = 'ru'
+
 
 
 # Static files (CSS, JavaScript, Images)

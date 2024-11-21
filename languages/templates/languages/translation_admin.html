@@ -1,0 +1,28 @@
+{% extends 'admin/base_site.html' %}
+
+{% block content %}
+    <h1>Languages Administration</h1>
+
+    <h2>Languages</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Language Name</th>
+                <th>Code</th>
+                <th>Active</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for language in languages %}
+                <tr>
+                    <td>{{ language.id }}</td>
+                    <td>{{ language.name }}</td>
+                    <td>{{ language.code }}</td>
+                    <td>{% if language.is_active %}Yes{% else %}No{% endif %}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

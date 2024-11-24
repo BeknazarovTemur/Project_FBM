@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.shortcuts import render, redirect
 from appeal.models import Appeal
 from files.models import Document
+from languages.models import Language
 from posts.models import Link, Slider, Menu
 
 # Create your views here.
@@ -26,4 +27,5 @@ def create_appeal(request):
         'sliders': slider_items,
         'links': link_items,
     }
+    context['active_languages'] = Language.objects.filter(is_active=True)
     return render(request, 'appeal_form.html', context)

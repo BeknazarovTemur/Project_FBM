@@ -14,6 +14,8 @@ import os
 from pathlib import Path
 from django.utils.translation import gettext_lazy as _
 
+# from languages.models import Language
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -128,7 +130,13 @@ USE_I18N = True
 
 USE_TZ = True
 
-DEFAULT_LANG = 'ru'
+# def get_active_languages():
+#     languages = Language.objects.filter(is_active=True)
+#     return [(lang.code, lang.name) for lang in languages]
+
+# LANGUAGES = get_active_languages()
+
+DEFAULT_LANG = 'ru' 
 
 
 

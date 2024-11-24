@@ -1,5 +1,6 @@
 from django.views.generic import ListView, DetailView
 from files.models import Document
+from languages.models import Language
 from posts.models import Link, Menu, MenuItem, Slider
 from .models import Question, QuestionAnswer
 from django.shortcuts import render, redirect
@@ -18,6 +19,7 @@ class QuestionListView(ListView):
             'items',
             MenuItem.objects.filter(is_active=True)
         )).all()
+        context['active_languages'] = Language.objects.filter(is_active=True)
         return context
     def get_queryset(self):
         return Question.objects.all().order_by('-add_time')[:6]
@@ -43,6 +45,7 @@ def create_question(request):
         'sliders': slider_items,
         'links': link_items,
     }
+    context['active_languages'] = Language.objects.filter(is_active=True)
     return render(request, 'question_form.html', context)
 
 class QuestionAnswerListView(ListView):
@@ -57,6 +60,7 @@ class QuestionAnswerListView(ListView):
             MenuItem.objects.filter(is_active=True)
         )).all()
         context['question_answers'] = QuestionAnswer.objects.filter(is_active=True).order_by('-add_time')[:6]
+        context['active_languages'] = Language.objects.filter(is_active=True)
         return context
 
 class QuestionAnswerDetailView(DetailView):
@@ -72,4 +76,5 @@ class QuestionAnswerDetailView(DetailView):
             'items',
             MenuItem.objects.filter(is_active=True)
         )).all()
+        context['active_languages'] = Language.objects.filter(is_active=True)
         return context

@@ -23,11 +23,10 @@
                     <input type="hidden" name="next" value="{{ request.path }}">
                     <ul class="lang">
                         {% get_current_language as LANGUAGE_CODE %}
-                        {% get_available_languages as LANGUAGES %}
-                        {% for lang_code, lang_name in LANGUAGES %}
-                            <li class="{% if lang_code == LANGUAGE_CODE %}active{% endif %}">
-                                <a href="#" onclick="event.preventDefault(); document.getElementById('language_form_language').value='{{ lang_code }}'; document.getElementById('language_form').submit();">
-                                    {% if lang_code == 'uz' %}O'zb{% elif lang_code == 'ru' %}Рус{% elif lang_code == 'en' %}Eng{% else %}{{ lang_name }}{% endif %}
+                        {% for lang in active_languages %}
+                            <li class="{% if lang.code == LANGUAGE_CODE %}active{% endif %}">
+                                <a href="#" onclick="event.preventDefault(); document.getElementById('language_form_language').value='{{ lang.code }}'; document.getElementById('language_form').submit();">
+                                    {{ lang.code }}  <!-- Show language code instead of name -->
                                 </a>
                             </li>
                         {% endfor %}

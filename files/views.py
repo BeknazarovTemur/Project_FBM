@@ -2,6 +2,7 @@ from django.http import HttpResponse, Http404
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView
 from django.db.models import Prefetch
+from languages.models import Language
 from posts.models import Fact, Helpline, Link, Menu, MenuItem, Slider
 from .models import Document
 
@@ -21,6 +22,7 @@ class DocumentListView(ListView):
             'items',
             MenuItem.objects.filter(is_active=True)
         )).all()
+        context['active_languages'] = Language.objects.filter(is_active=True)
         return context
     def get_queryset(self):
         return Document.objects.filter(is_active=True).order_by('-uploaded_at')[:4]

@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView
 from files.models import Document
+from languages.models import Language
 from question.models import QuestionAnswer
 from .models import Fact, Helpline, Link, Call, Post, Slider, Menu, MenuItem
 from django.db.models import Prefetch
@@ -28,6 +29,7 @@ class PostListView(ListView):
             'items',
             MenuItem.objects.filter(is_active=True)
         )).all()
+        context['active_languages'] = Language.objects.filter(is_active=True)
         return context
 
 class PostDetailView(DetailView):
@@ -46,6 +48,8 @@ class PostDetailView(DetailView):
             'items',
             MenuItem.objects.filter(is_active=True)
         )).all()
+        context['active_languages'] = Language.objects.filter(is_active=True)
+
         return context
 
 class NewsListView(ListView):
@@ -66,6 +70,7 @@ class NewsListView(ListView):
             'items',
             MenuItem.objects.filter(is_active=True)
         )).all()
+        context['active_languages'] = Language.objects.filter(is_active=True)
         return context
 
 class CallListView(ListView):
@@ -85,5 +90,6 @@ class CallListView(ListView):
             'items',
             MenuItem.objects.filter(is_active=True)
         )).all()
+        context['active_languages'] = Language.objects.filter(is_active=True)
         context['calls'] = Call.objects.filter(is_active=True).all()
         return context

@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 from rest_framework.exceptions import ValidationError
@@ -11,11 +12,16 @@ class Language(BaseModel):
     code = models.CharField(max_length=10, unique=True, verbose_name=_("Language Code"))
     is_active = models.BooleanField(default=False, verbose_name=_("Is Active"))
 
+    def save(self, *args, **kwargs):
+        if self.code == settings.DEFAULT_LANG:
+            self.is_active = True
+        super().save(*args, **kwargs)
+
     def __str__(self):
-        return self.name
+        return f"{self.name} ({self.code})"
 
     def delete(self, using=None, keep_parents=False):
-        if self.code == "ru":
+        if self.code == settings.DEFAULT_LANG:
             raise ValidationError("You can't delete this language")
         return super().delete(using, keep_parents)
 

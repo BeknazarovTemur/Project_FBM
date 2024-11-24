@@ -19,7 +19,6 @@ from django.contrib import admin
 from django.urls import path, include, re_path
 from django.conf.urls.static import static
 from django.conf.urls.i18n import i18n_patterns
-
 urlpatterns = [
     path('ckeditor/', include('ckeditor_uploader.urls')),
     path('admin/', admin.site.urls), 
@@ -28,6 +27,7 @@ urlpatterns = [
 ]
 
 urlpatterns += i18n_patterns(
+    re_path('', include('languages.urls')),
     re_path('', include('posts.urls')),
     re_path('', include('files.urls')),
     re_path('', include('appeal.urls')),

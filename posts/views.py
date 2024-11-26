@@ -4,10 +4,12 @@ from django.views.generic import ListView, DetailView
 from files.models import Document
 from languages.models import Language
 from question.models import QuestionAnswer
-from .models import Fact, Helpline, Link, Call, Post, Slider, Menu, MenuItem
+from .models import Fact, Helpline, Link, Call, Post, Slider, Menu, MenuItem, SliderTranslation
 from django.db.models import Prefetch
-from django_filters.rest_framework import DjangoFilterBackend
-from rest_framework import filters, status, viewsets
+from django.utils.translation import get_language
+from django.db.models import Subquery, OuterRef
+
+
 
 # Create your views here.
 
@@ -19,8 +21,42 @@ class PostListView(ListView):
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        language_code = get_language()
+        current_language = Language.objects.filter(code=language_code).first()
+        fallback_language = Language.objects.filter(code='ru').first()
+        sliders = Slider.objects.filter(is_active=True).annotate(
+            translated_title=Subquery(
+                SliderTranslation.objects.filter(
+                    slider=OuterRef('pk'),
+                    language=current_language
+                ).values('title')[:1]
+            ),
+            translated_body=Subquery(
+                SliderTranslation.objects.filter(
+                    slider=OuterRef('pk'),
+                    language=current_language
+                ).values('body')[:1]
+            ),
+            fallback_title=Subquery(
+                SliderTranslation.objects.filter(
+                    slider=OuterRef('pk'),
+                    language=fallback_language
+                ).values('title')[:1]
+            ),
+            fallback_body=Subquery(
+                SliderTranslation.objects.filter(
+                    slider=OuterRef('pk'),
+                    language=fallback_language
+                ).values('body')[:1]
+            )
+        )
+
+        for slider in sliders:
+            slider.translated_title = slider.translated_title or slider.fallback_title
+            slider.translated_body = slider.translated_body or slider.fallback_body
+
+        context['sliders'] = sliders
         context['documents'] = Document.objects.all().order_by('-uploaded_at')[:4]
-        context['sliders'] = Slider.objects.filter(is_active=True).all()
         context['links'] = Link.objects.filter(is_active=True).all()
         context['facts'] = Fact.objects.filter(is_active=True).all()
         context['helplines'] = Helpline.objects.filter(is_active=True).all()

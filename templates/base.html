@@ -144,27 +144,30 @@
                 <div class="position_slide relative">
                     <div id="carouselx" class="carousel slide" data-ride="carousel">
                         <!-- Wrapper for slides -->
+
                         <div class="carousel-inner" role="listbox">
                             {% for slider in sliders %}
                             <div class="item {% if forloop.first %}active{% endif %}">
                                 <div class="img_slide">
                                     {% if slider.image %}
-                                        <img src="{{ slider.image.url }}" alt="{{ slider.title }}">
+                                        <img src="{{ slider.image.url }}" alt="{{ slider.translated_title }}">
                                     {% else %}
                                         <img src="{% static 'path/to/placeholder_image.png' %}" alt="Default image">
                                     {% endif %}
                                     <div class="img_text">
-                                        <span>{{ slider.title }}</span>
+                                        <span>{{ slider.translated_title }}</span>
                                     </div>
                                 </div>
                                 <div class="slide_text">
                                     <div class="table_sl_text">
-                                        {{ slider.body|safe }}
+                                        {{ slider.translated_body|safe }}
                                     </div>
                                 </div>
                             </div>
                             {% endfor %}
                         </div>
+                        
+                        
                         <!-- Controls for carousel -->
                         <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>

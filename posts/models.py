@@ -6,6 +6,8 @@ from django.utils.translation import gettext_lazy as _
 from ckeditor.fields import RichTextField
 from django.utils import timezone
 
+from languages.models import Language
+
 # Create your models here.
 
 class Category(models.Model):
@@ -71,19 +73,33 @@ class MenuItem(models.Model):
     class Meta:
         ordering = ['id'] 
 
+
 class Slider(models.Model):
     image = models.ImageField(upload_to='images/', blank=True)
-    title = models.CharField(max_length=100, verbose_name=("title"))
-    body = RichTextField(verbose_name=("body"))
     created_at = models.DateTimeField(auto_now_add=True)
     is_active = models.BooleanField(default=True, verbose_name="Is Active")
 
     class Meta:
-        verbose_name = _("Slider")
-        verbose_name_plural = _('Sliders')
+        verbose_name = "Slider"
+        verbose_name_plural = "Sliders"
 
     def __str__(self):
-        return self.title
+        return f"Slider #{self.id}"
+
+class SliderTranslation(models.Model):
+    slider = models.ForeignKey(Slider, on_delete=models.CASCADE, related_name="translations")
+    language = models.ForeignKey(Language, on_delete=models.CASCADE)
+    title = models.CharField(max_length=100)
+    body = RichTextField()
+
+    class Meta:
+        verbose_name = "Slider Translation"
+        verbose_name_plural = "Slider Translations"
+        unique_together = ('slider', 'language')
+
+    def __str__(self):
+        return f"{self.slider} ({self.language.name})"
+
 
 class Link(models.Model):
     image = models.ImageField(upload_to='images/', blank=True)

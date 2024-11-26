@@ -1,49 +1,48 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render
 from django.http import JsonResponse
-from .models import Language, OriginalWord, Translations
+from django.views import View
+from django.db.models import F
+from languages.models import Catalog, Language, OriginalWord
 
-def list_translations(request):
-    translations = Translations.objects.select_related('language', 'original_word')
-    data = [
-        {
-            "id": translation.id,
-            "language": translation.language.name,
-            "original_word": translation.original_word.original_word,
-            "translation_text": translation.translation_text,
-        }
-        for translation in translations
-    ]
-    return JsonResponse(data, safe=False)
 
-def translation_detail(request, pk):
-    translation = get_object_or_404(Translations, pk=pk)
-    data = {
-        "id": translation.id,
-        "language": translation.language.name,
-        "original_word": translation.original_word.original_word,
-        "translation_text": translation.translation_text,
-    }
-    return JsonResponse(data)
+class ListTranslationsView(View):
+    def get(self, request):
+        translations = OriginalWord.objects.all()
+        data = [{"id": word.id, "original_word": word.original_word} for word in translations]
+        return JsonResponse(data, safe=False)
 
-def create_translation(request):
-    if request.method == "POST":
-        language_id = request.POST.get("language_id")
-        original_word_id = request.POST.get("original_word_id")
-        translation_text = request.POST.get("translation_text")
 
-        language = get_object_or_404(Language, pk=language_id)
-        original_word = get_object_or_404(OriginalWord, pk=original_word_id)
+class LanguageListView(View):
+    def get(self, request):
+        languages = Language.objects.all()
+        data = [{"id": lang.id, "name": lang.name, "code": lang.code} for lang in languages]
+        return JsonResponse(data, safe=False)
 
-        translation = Translations.objects.create(
-            language=language,
-            original_word=original_word,
-            translation_text=translation_text,
+
+class OriginalWordListView(View):
+    def get(self, request):
+        words = OriginalWord.objects.all()
+        data = [{"id": word.id, "original_word": word.original_word} for word in words]
+        return JsonResponse(data, safe=False)
+
+
+class UserLanguageWordListView(View):
+    def get(self, request):
+        language = self.request.headers.get("Accept-Language")
+        if (
+            not language
+            or not Language.objects.filter(code=language, is_active=True).exists()
+        ):
+            return JsonResponse([], safe=False)
+        words = OriginalWord.objects.filter(translations__language__code=language).annotate(
+            translation_text=F("translations__translation_text")
         )
-        data = {
-            "id": translation.id,
-            "language": translation.language.name,
-            "original_word": translation.original_word.original_word,
-            "translation_text": translation.translation_text,
-        }
-        return JsonResponse(data, status=201)
-    return JsonResponse({"error": "Invalid method"}, status=400)
+        data = [{"id": word.id, "original_word": word.original_word, "translation_text": word.translation_text} for word in words]
+        return JsonResponse(data, safe=False)
+
+
+class CatalogListView(View):
+    def get(self, request):
+        catalogs = Catalog.objects.all()
+        data = [{"id": catalog.id, "name": catalog.name} for catalog in catalogs]
+        return JsonResponse(data, safe=False)

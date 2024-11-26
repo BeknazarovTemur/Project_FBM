@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django import forms
 from django.contrib import admin
+from languages.models import Language
 from posts.models import (
     Category, 
     Fact, 
@@ -11,6 +12,7 @@ from posts.models import (
     Post, 
     Slider,
     Call,
+    SliderTranslation,
     )
 
 # Register your models here.
@@ -29,6 +31,11 @@ class PostAdmin(admin.ModelAdmin):
     list_filter = ('title', 'short_content', 'created_at')
     search_fields = ('title',)
 
+    def formfield_for_foreignkey(self, db_field, request, **kwargs):
+        if db_field.name == "language":
+            kwargs["queryset"] = Language.objects.filter(is_active=True)
+        return super().formfield_for_foreignkey(db_field, request, **kwargs)
+
 class MenuAdmin(admin.ModelAdmin):
     list_display = ('name', 'url', 'is_active')
     list_filter = ('name', 'url')
@@ -39,10 +46,22 @@ class MenuItemAdmin(admin.ModelAdmin):
     list_filter = ('menu', 'parent', 'is_active')
     search_fields = ('name',)
 
+class SliderTranslationInline(admin.TabularInline):
+    model = SliderTranslation
+    extra = 0
+    fields = ('language', 'title', 'body')
+
+    def formfield_for_foreignkey(self, db_field, request, **kwargs):
+        if db_field.name == "language":
+            kwargs["queryset"] = Language.objects.all()
+        return super().formfield_for_foreignkey(db_field, request, **kwargs)
+
+
 class SliderAdmin(admin.ModelAdmin):
-    list_display = ('title', 'created_at', 'is_active')
-    list_filter = ('title', 'created_at', 'is_active')
-    search_fields = ('title',)
+    list_display = ('id', 'is_active', 'created_at')
+    list_filter = ('is_active',)
+    inlines = [SliderTranslationInline]
+
 
 class LinkAdmin(admin.ModelAdmin):
     list_display = ('title', 'is_active')

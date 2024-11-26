@@ -1,8 +1,10 @@
 from django.urls import path
-from .views import list_translations, translation_detail, create_translation
+from . import views
 
 urlpatterns = [
-    path('translations/', list_translations, name='list_translations'),
-    path('translations/<int:pk>/', translation_detail, name='translation_detail'),
-    path('translations/create/', create_translation, name='create_translation'),
+    path('translations/', views.ListTranslationsView.as_view(), name='list_translations'),
+    path('languages/', views.LanguageListView.as_view(), name='language_list'),
+    path('original-words/', views.OriginalWordListView.as_view(), name='original_word_list'),
+    path('user-language-words/', views.UserLanguageWordListView.as_view(), name='user_language_word_list'),
+    path('catalogs/', views.CatalogListView.as_view(), name='catalog_list'),
 ]

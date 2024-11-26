@@ -43,8 +43,6 @@ INSTALLED_APPS = [
     # external apps
     'rest_framework',
     'django_filters',
-    # 'rosetta',
-    'modeltranslation',
     'ckeditor',
     'ckeditor_uploader',
     # internal apps

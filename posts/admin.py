@@ -17,8 +17,6 @@ from posts.models import (
 
 # Register your models here.
 
-admin.site.register(Category)
-
 class PostAdminForm(forms.ModelForm):
 
     class Meta:
@@ -83,6 +81,7 @@ class CallAdmin(admin.ModelAdmin):
     list_filter = ('title', 'federation_number', 'state_number', 'is_active')
     search_fields = ('title',)
 
+admin.site.register(Category)
 admin.site.register(Post, PostAdmin)
 admin.site.register(Menu, MenuAdmin)
 admin.site.register(MenuItem, MenuItemAdmin)

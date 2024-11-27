@@ -22,8 +22,9 @@ class PostListView(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         language_code = get_language()
-        current_language = Language.objects.filter(code=language_code).first()
-        fallback_language = Language.objects.filter(code='ru').first()
+        current_language = Language.objects.filter(code__iexact=language_code).first()
+        fallback_language = Language.objects.filter(code__iexact='ru').first()
+
         sliders = Slider.objects.filter(is_active=True).annotate(
             translated_title=Subquery(
                 SliderTranslation.objects.filter(

@@ -2,18 +2,9 @@ from django.contrib import admin
 from django import forms
 from django.contrib import admin
 from languages.models import Language
-from posts.models import (
-    Category, 
-    Fact, 
-    Helpline, 
-    Link, 
-    Menu,
-    MenuItem,
-    Post, 
-    Slider,
-    Call,
-    SliderTranslation,
-    )
+from posts.models import (Fact, Helpline, Link, Menu, MenuItem, Post, Slider, Call,
+    SliderTranslation, PostTranslation,
+)
 
 # Register your models here.
 
@@ -23,11 +14,15 @@ class PostAdminForm(forms.ModelForm):
         model = Post
         fields = '__all__'
 
+class PostTranslationInline(admin.TabularInline):  # Or use admin.StackedInline
+    model = PostTranslation
+    extra = 0
+    fields = ('language', 'title', 'short_content', 'content')
+
 class PostAdmin(admin.ModelAdmin):
-    form = PostAdminForm
-    list_display = ('title', 'date', 'created_at','is_active')
-    list_filter = ('title', 'short_content', 'created_at')
-    search_fields = ('title',)
+    list_display = ('created_at', 'is_active')
+    list_filter = ('created_at',)
+    inlines = [PostTranslationInline]
 
     def formfield_for_foreignkey(self, db_field, request, **kwargs):
         if db_field.name == "language":
@@ -60,7 +55,6 @@ class SliderAdmin(admin.ModelAdmin):
     list_filter = ('is_active',)
     inlines = [SliderTranslationInline]
 
-
 class LinkAdmin(admin.ModelAdmin):
     list_display = ('title', 'is_active')
     list_filter = ('title', 'is_active')
@@ -81,7 +75,6 @@ class CallAdmin(admin.ModelAdmin):
     list_filter = ('title', 'federation_number', 'state_number', 'is_active')
     search_fields = ('title',)
 
-admin.site.register(Category)
 admin.site.register(Post, PostAdmin)
 admin.site.register(Menu, MenuAdmin)
 admin.site.register(MenuItem, MenuItemAdmin)

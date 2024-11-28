@@ -1,15 +1,11 @@
-from django.shortcuts import render
-from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView
 from files.models import Document
 from languages.models import Language
 from question.models import QuestionAnswer
-from .models import Fact, Helpline, Link, Call, Post, Slider, Menu, MenuItem, SliderTranslation
+from .models import Fact, Helpline, Link, Call, Post, Slider, Menu, MenuItem, SliderTranslation, PostTranslation
 from django.db.models import Prefetch
 from django.utils.translation import get_language
 from django.db.models import Subquery, OuterRef
-
-
 
 # Create your views here.
 
@@ -24,6 +20,49 @@ class PostListView(ListView):
         language_code = get_language()
         current_language = Language.objects.filter(code__iexact=language_code).first()
         fallback_language = Language.objects.filter(code__iexact='ru').first()
+
+        posts = Post.objects.filter(is_active=True).annotate(
+            translated_title = Subquery(
+                PostTranslation.objects.filter(
+                    post=OuterRef('pk'),
+                    language=Subquery(current_language)
+                ).values('title')[:1]
+            ),
+            translated_short_content = Subquery(
+                PostTranslation.objects.filter(
+                    post=OuterRef('pk'),
+                    language=Subquery(current_language)
+                ).values('short_content')[:1]
+            ),
+            translated_content = Subquery(
+                PostTranslation.objects.filter(
+                    post=OuterRef('pk'),
+                    language=Subquery(current_language)
+                ).values('content')[:1]
+            ),
+            fallback_title = Subquery(
+                PostTranslation.objects.filter(
+                    post=OuterRef('pk'),
+                    language=fallback_language
+                ).values('title')[:1]
+            ),
+            fallback_short_content = Subquery(
+                PostTranslation.objects.filter(
+                    post=OuterRef('pk'),
+                    language=fallback_language
+                ).values('short_content')[:1]
+            ),
+            fallback_content = Subquery(
+                PostTranslation.objects.filter(
+                    post=OuterRef('pk'),
+                    language=fallback_language
+                ).values('content')[:1]
+            )
+        )
+
+        for post in posts:
+            post.translated_title = post.translated_title or post.fallback_title
+            post.translated_short_content = post.translated_short_content or post.fallback_short_content
 
         sliders = Slider.objects.filter(is_active=True).annotate(
             translated_title=Subquery(

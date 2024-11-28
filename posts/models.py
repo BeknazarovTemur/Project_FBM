@@ -1,32 +1,14 @@
-from django.conf import settings
 from django.db import models
 from django.contrib.auth.models import User
 from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
 from ckeditor.fields import RichTextField
 from django.utils import timezone
-
 from languages.models import Language
 
 # Create your models here.
-
-class Category(models.Model):
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    name = models.CharField(max_length=50)
-
-    class Meta:
-        verbose_name = _("Category")
-        verbose_name_plural = _('Categories')
-
-
-    def __str__(self):
-        return self.name
     
 class Post(models.Model):
-    category = models.ForeignKey(Category, on_delete=models.CASCADE, verbose_name=("category"))
-    title = models.CharField(max_length=100, verbose_name=("title"))
-    short_content = RichTextField(max_length=300, blank=True, verbose_name=("short_content"))
-    content = RichTextField(verbose_name="content")
     image = models.ImageField(upload_to='images/', blank=True)
     created_at = models.DateTimeField(null=True, blank=True, auto_now_add=True)
     is_active = models.BooleanField(default=True, verbose_name="Is Active")
@@ -35,12 +17,24 @@ class Post(models.Model):
     class Meta:
         verbose_name = _("Post")
         verbose_name_plural = _('Posts')
-
-    def __str__(self):
-        return self.title
     
     def get_absolute_url(self):
         return reverse("post_detail", args=[str(self.id)])
+
+class PostTranslation(models.Model):
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name="translations")
+    language = models.ForeignKey(Language, on_delete=models.CASCADE)
+    title = models.CharField(max_length=100, verbose_name=("title"))
+    short_content = RichTextField(max_length=300, blank=True, verbose_name=("short_content"))
+    content = RichTextField(verbose_name="content")
+
+    class Meta:
+        verbose_name = "Post Translation"
+        verbose_name_plural = "Post Translations"
+        unique_together = ('post', 'language')
+
+    def __str__(self):
+        return f"{self.post} ({self.language.name})"
 
 class Menu(models.Model):
     name = models.CharField(max_length=100, verbose_name=_("Name"))
@@ -66,12 +60,10 @@ class MenuItem(models.Model):
     class Meta:
         verbose_name = _("MenuItem")
         verbose_name_plural = _('MenuItems')
-
+        ordering = ['id']
     def __str__(self):
         return self.name
 
-    class Meta:
-        ordering = ['id'] 
 
 
 class Slider(models.Model):
